@@ -1,0 +1,101 @@
+<!DOCTYPE>
+<html class="no-js" lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>OneLook</title>
+        <link rel="stylesheet" href="css/main.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+<script src="https://use.fontawesome.com/20929198f1.js"></script>
+          <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+
+    </head>
+<body id="searchpage">
+<nav style="height: 18%;">
+  <img src="images/ArialLogo.png"/>
+      <input id="locationtwo" placeholder="&#xf041;      Please type your location..."/>
+        <input id="menutwo" placeholder="&#xf002;     Search for a restuarant menu or cuisine..."/>
+  <button id="log">Login</button>
+  <button id="sign">Sign Up</button>
+</nav>
+<aside id="filter">
+    <h2>Filters</h2>
+<h3>Sort By</h3>
+<form action="">
+  <input type="radio" name="sort" value="low"> Cost - low to high<br>
+  <input type="radio" name="sort" value="high"> Cost - high to low<br>
+  <input type="radio" name="sort" value="rating"> Rating
+</form>
+    <h3 id="rate">Rating</h3>
+    <fieldset class="rating">
+    <input type="radio" name="rating" value="5" />
+    <label class = "full" for="star5"></label>
+    <input type="radio" id="star4half" name="rating" value="4 and a half" />
+    <label class="half" for="star4half"></label>
+    <input type="radio" id="star4" name="rating" value="4" />
+    <label class = "full" for="star4"></label>
+    <input type="radio" id="star3half" name="rating" value="3 and a half" />
+    <label class="half" for="star3half"></label>
+    <input type="radio" id="star3" name="rating" value="3" />
+    <label class = "full" for="star3"></label>
+    <input type="radio" id="star2half" name="rating" value="2 and a half" />
+    <label class="half" for="star2half"></label>
+    <input type="radio" id="star2" name="rating" value="2" />
+    <label class = "full" for="star2"></label>
+    <input type="radio" id="star1half" name="rating" value="1 and a half" />
+    <label class="half" for="star1half"></label>
+    <input type="radio" id="star1" name="rating" value="1" />
+    <label class = "full" for="star1"></label>
+    <input type="radio" id="starhalf" name="rating" value="half" />
+    <label class="half" for="starhalf"></label>
+</fieldset>
+    <h3 id="price">Price</h3>
+    <fieldset class="pricing">
+    <input type="radio" name="pricing" value="5" />
+    <label class = "full" for="price5" ></label>
+    <input type="radio" id="price4" name="pricing" value="4" />
+    <label class = "full" for="price4"></label>
+    <input type="radio" id="price3" name="pricing" value="3" />
+    <label class = "full" for="price3"></label>
+    <input type="radio" id="price2" name="pricing" value="2" />
+    <label class = "full" for="price2"></label>
+    <input type="radio" id="price1" name="rating" value="1" />
+    <label class = "full" for="price1"></label>
+</fieldset>
+    </aside>
+    <section id="view">
+        <article id="rest">
+            <img src="images/olive.jpg"/>
+        <aside>  
+            <h3>Olive Garden</h3>
+            <br>
+            <h5>Location: </h5>
+            <p>12361 State Road 535, Orlando, FL 32836</p>
+        </aside>     
+            <hr>
+           </article>     
+        <section id="options">
+            <ul id="left">
+                <li>Cuisine: </li>
+                <li>Hours: </li>
+                <li>Price: </li>
+            </ul>
+             <ul id="right">
+                <li>Italian </li>
+                <li>11AM-10PM </li>
+                <li class="prices"><input type="radio" id="prices2" name="prices" value="2" />
+    <label class = "full" for="prices2"></label>
+    <input type="radio" id="prices1" name="prices" value="1" />
+    <label class = "full" for="prices1"></label> </li>
+            </ul>
+        </section>
+        <hr style="margin-top: 25%;">
+        <section>
+         <a href="menu.html"><i class="fa fa-cutlery" aria-hidden="true"></i>  View Menu</a>
+        </section>
+    </section>
+    <footer style="margin-top: 60%;">
+    </footer>
+    
+</body>
+</html>
