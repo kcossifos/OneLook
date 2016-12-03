@@ -14,9 +14,20 @@ include 'header.php';
 
 echo "
 <section>
-      <h1>Know your total before you GO!</h1>
-      <input id='location' placeholder='&#xf041;      Please type your location...'/>
-    <input id='menu' placeholder='&#xf002;     Search for a restuarant menu or cuisine...'/>
+      <h1 id='caption'>Know your total before you GO!</h1>
+      <form action='menuList.php' method='POST'>
+        <select id='location' name='locationParam'>
+          <option value='WinterPark'>Winter Park</option>
+        </select>
+        <input id='menu' name='searchFood' list='foodTypes'>
+        <datalist id='foodTypes'>
+          <option value='Mexican'>
+          <option value='Italian'>
+          <option value='Japanese'>
+          <option value='Chinese'>
+          <option value='American'>
+          <option value='Indian'>
+      </form>
       <img style='margin-top: 20px;' data-u='image' src='images/pizza.png' />
 </section>
 <section style='padding-bottom: 2%; padding-top: 1%; background-color: #F3F3F3;'>
