@@ -34,17 +34,22 @@ include 'header.php';
     if($restaurant_array['results'][$i]['formatted_address']){
       echo '<p>Address: ' . $restaurant_array['results'][$i]['formatted_address'] . '</p>';
     }else {
-      echo '<p></p>';
+      echo '';
     }
     if($restaurant_array['results'][$i]['rating']){
       echo '<p>Rating: ' . $restaurant_array['results'][$i]['rating'] . '</p>';
     }else {
-      echo '<p></p>';
+      echo '';
     }
     if($restaurant_array['results'][$i]['opening_hours']['open_now'] === false){
       echo '<p>Closed now</p>';
-    }else {
+    }else if($restaurant_array['results'][$i]['opening_hours']['open_now'] === true){
       echo '<p>Open now</p>';
+    }
+    if($restaurant_array['results'][$i]['name'] == "Giovanni's Italian Restaurant & Pizzeria"){
+      echo '<button><a href="menuPage.php">View Menu</a></button>';
+    }else {
+      echo '';
     }
   }
 
