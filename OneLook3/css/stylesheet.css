@@ -217,3 +217,281 @@ label.error {
         width: auto;
      }
  }
+
+
+
+
+ /*            Search Page       */
+
+
+ #locationtwo {
+    position: absolute;
+    top: 15%;
+    left: 20%;
+    height: 47%;
+    width: 20%;
+    font-family: FontAwesome;
+    font-size: 1rem;
+    border-radius: 7px;
+    text-align: left;
+    padding-left: 2%;
+    align-content: center;
+    margin-top: 1%;
+}
+
+#menutwo {
+    margin-top: 1%;
+    position: absolute;
+    top: 10%;
+    left: 41%;
+    height: 47%;
+    width: 33%;
+    font-family: FontAwesome;
+    font-size: 1rem;
+    border: none;
+    border-radius: 7px;
+    text-align: left;
+    padding-left: 2%;
+    align-content: center;
+    background-color: #ffffff;
+    border: 1px solid #cccccc;
+    color: #555555;
+    white-space: pre;
+}
+
+#sign {
+  margin-top: -18px;
+}
+
+#log {
+    margin-top: -18px;
+}
+
+
+aside > h2 {
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    color: #000000;
+    padding-top: 3%;
+    font-size: 3rem;
+}
+
+aside > h3 {
+    position: absolute;
+    top: 20%;
+    left: 5%;
+    color: #000000;
+    padding-top: 3%;
+    font-size: 1.3rem;
+}
+
+#filter {
+    background-color: #FFFFFF;
+    position: absolute;
+    top: 25%;
+    left: 3%;
+    padding-top: 20%;
+    height: 40%;
+    width: 20%;
+    border: 1px solid #CCCCCC;
+    border-radius: 7px;
+}
+
+#filtering {
+    position: absolute;
+    top: 32%;
+    left: 4.5%;
+    font-family: Arial;
+}
+
+#filtering > input {
+    margin-bottom: 10%;
+}
+
+
+
+/*  rating  */
+
+#rate {
+    position:absolute;
+    top: 47%;
+    left: 5%;
+    color: #000000;
+    padding-top: 3%;
+    font-size: 1.3rem;
+}
+
+.rating {
+  border: none;
+  float: left;
+  position: absolute;
+  top: 57%;
+  left: 1%;
+}
+
+.rating > input { display: none; }
+.rating > label:before {
+  margin: 5px;
+  font-size: 2em;
+  font-family: FontAwesome;
+  display: inline-block;
+  content: "\f005";
+}
+
+.rating > .half:before {
+  content: "\f089";
+  position: absolute;
+}
+
+.rating > label {
+  color: #ddd;
+ float: right;
+}
+
+.rating > input:checked ~ label,
+.rating:not(:checked) > label:hover,
+.rating:not(:checked) > label:hover ~ label { color: #FFD700;  }
+
+.rating > input:checked + label:hover,
+.rating > input:checked ~ label:hover,
+.rating > label:hover ~ input:checked ~ label,
+.rating > input:checked ~ label:hover ~ label { color: #FFED85;  }
+
+/* price */
+
+#price {
+    position: absolute;
+    top: 67%;
+    left: 5%;
+    color: #000000;
+    padding-top: 3%;
+    font-size: 1.3rem;
+}
+
+.pricing {
+  border: none;
+  float: left;
+  position: absolute;
+  top: 77%;
+  left: 1%;
+}
+
+.pricing > input { display: none; }
+.pricing > label:before {
+  margin: 5px;
+  font-size: 2em;
+  font-family: FontAwesome;
+  display: inline-block;
+  content: "\f0d6";
+}
+
+.pricing > label {
+  color: #ddd;
+ float: right;
+}
+
+.pricing > input:checked ~ label,
+.pricing:not(:checked) > label:hover,
+.pricing:not(:checked) > label:hover ~ label { color: green;  }
+
+.pricing > input:checked + label:hover,
+.pricing > input:checked ~ label:hover,
+.pricing > label:hover ~ input:checked ~ label,
+.pricing > input:checked ~ label:hover ~ label { color: lightgreen;  }
+
+
+
+
+#view {
+    margin-left: 500px;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    background-color: FFFFFF;
+    border: 1px solid #CCCCCC;
+    border-radius: 7px;
+    padding-bottom: 15%;
+    width: 62%;
+}
+
+#rest > img {
+    width: 30%;
+    height: 50%;
+    padding: 5%;
+}
+
+#rest > aside > h3 {
+    margin-top: -70px;
+    margin-left: -20px;
+    font-size: 1.5rem;
+}
+
+#rest > aside > h5 {
+    margin-top: 70px;
+
+}
+
+#rest > aside {
+    position: absolute;
+    margin-left: 400px;
+    margin-top: -220px;
+}
+
+#options > #left  {
+  position: absolute;
+  margin-left: -70px;
+  margin-top: 50px;
+}
+
+#options > ul > li {
+ padding-bottom: 40px;
+     display: block;
+}
+
+#options > #right {
+  position: absolute;
+  margin-left: 300px;
+  margin-top: 50px;
+}
+
+
+.prices {
+  border: none;
+  float: left;
+  position: absolute;
+  top: 90%;
+  left: 40%;
+}
+
+.prices > input { display: none; }
+.prices> label:before {
+  margin: 5px;
+  font-size: 2em;
+  font-family: FontAwesome;
+  display: inline-block;
+  content: "\f0d6";
+}
+
+.prices > label {
+  color: green;
+ float: right;
+}
+
+section > a {
+    color: #000000;
+    text-decoration: none;
+    font-size: 1.8rem;
+    font-weight: 600;
+    position: absolute;
+    margin-top: 70px;
+    margin-left: 400px;
+}
+
+section > a:hover {
+    color: #3E0808;
+}
+
+
+section > a:visited {
+    color: #7F3737;
+}
