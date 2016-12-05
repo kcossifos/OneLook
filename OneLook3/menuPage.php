@@ -11,16 +11,36 @@ include 'header.php';
   //Uncomment this line to show errors
   // error_reporting(0);
 
-  $result = $db->query("SELECT * FROM ".OneLook_PREFIX."items WHERE menu_id = '1'");
-  $total_num_rows = $result->num_rows;
+  $italianResult = $db->query("SELECT * FROM ".OneLook_PREFIX."items WHERE menu_id = '1'");
+  $japaneseResult = $db->query("SELECT * FROM ".OneLook_PREFIX."items WHERE menu_id = '3'");
+  $mexicanResult = $db->query("SELECT * FROM ".OneLook_PREFIX."items WHERE menu_id = '2'");
 
-  echo '<h1></h1>';
-  echo '<table>';
-  echo '<tr><th>Name</th><th>Price</th></tr>';
-  foreach ($result as $row) {
-    echo '<tr><td>' .$row['item_name'] . '</td><td>' .$row['item_price'] . '</td>  <button>Add to cart</button></tr>';
+  if($_POST['foodType'] == 'italian'){
+      echo '<h1></h1>';
+      echo '<table>';
+      echo '<tr><th>Name</th><th>Price</th></tr>';
+      foreach ($italianResult as $row) {
+        echo '<tr><td>' .$row['item_name'] . '</td><td>' .$row['item_price'] . '</td>  <button>Add to cart</button></tr>';
+      }
+      echo '</table';
+  }else if($_POST['foodType'] == 'japanese'){
+    echo '<h1></h1>';
+    echo '<table>';
+    echo '<tr><th>Name</th><th>Price</th></tr>';
+    foreach ($japaneseResult as $row) {
+      echo '<tr><td>' .$row['item_name'] . '</td><td>' .$row['item_price'] . '</td>  <button>Add to cart</button></tr>';
+    }
+    echo '</table';
+  }else if($_POST['foodType'] == 'mexican'){
+    echo '<h1></h1>';
+    echo '<table>';
+    echo '<tr><th>Name</th><th>Price</th></tr>';
+    foreach ($mexicanResult as $row) {
+      echo '<tr><td>' .$row['item_name'] . '</td><td>' .$row['item_price'] . '</td>  <button>Add to cart</button></tr>';
+    }
+    echo '</table';
   }
-  echo '</table';
+
 
 
 include 'footer.php';

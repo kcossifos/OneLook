@@ -47,12 +47,32 @@ include 'header.php';
       echo '<p>Open now</p>';
     }
     if($restaurant_array['results'][$i]['name'] == "Giovanni's Italian Restaurant & Pizzeria"){
-      echo '<button><a href="menuPage.php">View Menu</a></button>';
-    }else {
-      echo '';
+      echo '  <form action="menuPage.php" method="post">
+                  <input type="hidden" name="foodType" value="italian" />
+                  This kinda looks like a link:
+                     <input type="submit" value="link" class="button" />
+              </form>';
+    }else if($restaurant_array['results'][$i]['name'] == "Cocina 214"){
+      echo '  <form action="menuPage.php" method="post">
+                  <input type="hidden" name="foodType" value="mexican" />
+                  This kinda looks like a link:
+                     <input type="submit" value="link" class="button" />
+              </form>';
+    }else if($restaurant_array['results'][$i]['name'] == "Sakari Sushi"){
+      echo '  <form action="menuPage.php" method="post">
+                  <input type="hidden" name="foodType" value="japanese" />
+                  This kinda looks like a link:
+                     <input type="submit" value="link" class="button" />
+              </form>';
     }
   }
 
+
+  // <form action="menuPage.php">
+  //           <input type="hidden" name="foodType" value="italian" />
+  //           This kinda looks like a link:
+  //              <input type="submit" value="link" class="button" />
+  //       </form>
   include 'footer.php';
   // var_dump($search_query);
   // var_dump($search_query_location);
