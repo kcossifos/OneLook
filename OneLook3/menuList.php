@@ -41,6 +41,11 @@ include 'header.php';
     }else {
       echo '';
     }
+    if($restaurant_array['results'][$i]['price_level']){
+      echo '<p>Price Level: ' . $restaurant_array['results'][$i]['price_level'] . '</p>';
+    }else {
+      echo '';
+    }
     if($restaurant_array['results'][$i]['opening_hours']['open_now'] === false){
       echo '<p>Closed now</p>';
     }else if($restaurant_array['results'][$i]['opening_hours']['open_now'] === true){
@@ -49,20 +54,17 @@ include 'header.php';
     if($restaurant_array['results'][$i]['name'] == "Giovanni's Italian Restaurant & Pizzeria"){
       echo '  <form action="menuPage.php" method="post">
                   <input type="hidden" name="foodType" value="italian" />
-                  This kinda looks like a link:
-                     <input type="submit" value="link" class="button" />
+                     <input type="submit" value="Menu" class="button" />
               </form>';
     }else if($restaurant_array['results'][$i]['name'] == "Cocina 214"){
       echo '  <form action="menuPage.php" method="post">
                   <input type="hidden" name="foodType" value="mexican" />
-                  This kinda looks like a link:
-                     <input type="submit" value="link" class="button" />
+                     <input type="submit" value="Menu" class="button" />
               </form>';
     }else if($restaurant_array['results'][$i]['name'] == "Sakari Sushi"){
       echo '  <form action="menuPage.php" method="post">
                   <input type="hidden" name="foodType" value="japanese" />
-                  This kinda looks like a link:
-                     <input type="submit" value="link" class="button" />
+                     <input type="submit" value="Menu" class="button" />
               </form>';
     }
   }
