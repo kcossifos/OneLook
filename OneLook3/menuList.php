@@ -63,25 +63,90 @@ include 'headersearch.php';
     <label class="half" for="starhalf"></label>
 </form>
     <h3 id="price">Price</h3>
-    <fieldset class="pricing">
-    <input type="radio" name="pricing" value="5" />
+    <form class="pricing" action="menuList.php" method="post">
+    <input type="hidden" name="searchFood" value="' . $search_query . '">
+    <input type="hidden" name="locationParam" value="' . $search_query_location . '">
+    <input type="submit" name="pricing" value=4 />
     <label class = "full" for="price5" ></label>
-    <input type="radio" id="price4" name="pricing" value="4" />
+    <input type="submit" id="price4" name="pricing" value=3 />
     <label class = "full" for="price4"></label>
-    <input type="radio" id="price3" name="pricing" value="3" />
+    <input type="submit" id="price3" name="pricing" value=2 />
     <label class = "full" for="price3"></label>
-    <input type="radio" id="price2" name="pricing" value="2" />
+    <input type="submit" id="price2" name="pricing" value=1 />
     <label class = "full" for="price2"></label>
-    <input type="radio" id="price1" name="rating" value="1" />
+    <input type="submit" id="price1" name="pricing" value=0 />
     <label class = "full" for="price1"></label>
-</fieldset>
+</form>
     </aside>';
 
   $rating = $_POST['rating'];
+  $price_level = $_POST['pricing'];
 
   if($rating){
     for($i = 0; $i < 10; $i++){
       if($restaurant_array['results'][$i]['rating'] == $rating){
+      echo '<section id="view">
+          <article id="rest">
+              <img src="images/olive.jpg"/>
+          <aside>  <h3>' . $restaurant_array['results'][$i]['name'] . '</h3><br>';
+        if($restaurant_array['results'][$i]['formatted_address']){
+          echo '<h5>Address:</h5><p>' . $restaurant_array['results'][$i]['formatted_address'] . '</p>';
+        }else {
+          echo '';
+        }
+        if($restaurant_array['results'][$i]['rating']){
+          echo '<p>Restaurant rating is equal to rating';
+          echo '<p>Rating: ' . $restaurant_array['results'][$i]['rating'] . ' \ 5</p> </aside>
+                <hr>
+               </article><section id="options">
+                <ul id="left">
+                <li>Hours: </li>
+                </ul>
+                <ul id="right">';
+        }else {
+          echo ' ';
+        }
+        if($restaurant_array['results'][$i]['price_level']){
+          echo '<p>Price Level: ' . $restaurant_array['results'][$i]['price_level'] . '</p>';
+        }else {
+          echo '';
+        }
+        if($restaurant_array['results'][$i]['opening_hours']['open_now'] === false){
+          echo ' <li>Closed now</li></ul>
+              </section>
+              <hr style="margin-top: 25%;">';
+        }else if($restaurant_array['results'][$i]['opening_hours']['open_now'] === true){
+          echo '<li>Open now</li></ul>
+              </section>
+              <hr style="margin-top: 25%;">';
+        }
+        if($restaurant_array['results'][$i]['name'] == "Giovanni's Italian Restaurant & Pizzeria"){
+          // echo '
+          //     <section> <a href="menuPage.php"><i class="fa fa-cutlery" aria-hidden="true"></i>  View Menu</a>';
+
+          echo '  <form action="menuPage.php" method="post">
+                    <input type="hidden" name="foodType" value="italian" />
+                    <input type="submit" value="Menu" class="button" />
+                  </form>';
+        }else if($restaurant_array['results'][$i]['name'] == "Cocina 214"){
+          echo '  <form action="menuPage.php" method="post">
+                    <input type="hidden" name="foodType" value="mexican" />
+                    <input type="submit" value="Menu" class="button" />
+                  </form>';
+        }else if($restaurant_array['results'][$i]['name'] == "Sakari Sushi"){
+          echo '  <form action="menuPage.php" method="post">
+                    <input type="hidden" name="foodType" value="japanese" />
+                    <input type="submit" value="Menu" class="button" />
+                  </form>';
+        }
+      echo '</section>
+            </section>';
+          }else {
+          }
+    }
+  }else if($price_level) {
+    for($i = 0; $i < 10; $i++){
+      if($restaurant_array['results'][$i]['price_level'] == $price_level){
       echo '<section id="view">
           <article id="rest">
               <img src="images/olive.jpg"/>
