@@ -32,10 +32,12 @@ include 'headersearch.php';
   <aside id="filter">
     <h2>Filters</h2>
 <h3>Sort By</h3>
-<form id="filtering" action="">
-  <input type="radio" name="sort" value="low"> Cost - low to high<br>
-  <input type="radio" name="sort" value="high"> Cost - high to low<br>
-  <input type="radio" name="sort" value="rating"> Rating
+<form id="filtering" action="menuList.php" method="post">
+  <input type="hidden" name="searchFood" value="' . $search_query . '">
+  <input type="hidden" name="locationParam" value="' . $search_query_location . '">
+  <input type="submit" name="sort" value="low"> Cost - low to high<br>
+  <input type="submit" name="sort" value="high"> Cost - high to low<br>
+  <input type="submit" name="sort" value="rating"> Rating
 </form>
     <h3 id="rate">Rating</h3>
     <form class="rating" action="menuList.php" method="post">
@@ -81,6 +83,33 @@ include 'headersearch.php';
 
   $rating = $_POST['rating'];
   $price_level = $_POST['pricing'];
+  $sorting = $_POST['sort'];
+
+  $rating_array = array();
+  $low_high_array = array();
+
+  for($i = 0; $i < 10; $i++){
+    array_push($rating_array, $restaurant_array['results'][$i]);
+  }
+
+  for($i = 0; $i < 10; $i++){
+    array_push($low_high_array, $restaurant_array['results'][$i]);
+  }
+
+  function cmp($a, $b)
+  {
+      return strcmp($a["rating"], $b["rating"]);
+  }
+
+  function coolcmp($a, $b)
+    {
+        return strcmp($a["price_level"], $b["price_level"]);
+    }
+
+  usort($rating_array, "cmp");
+
+  usort($low_high_array, "coolcmp");
+
 
   if($rating){
     for($i = 0; $i < 10; $i++){
@@ -95,7 +124,6 @@ include 'headersearch.php';
           echo '';
         }
         if($restaurant_array['results'][$i]['rating']){
-          echo '<p>Restaurant rating is equal to rating';
           echo '<p>Rating: ' . $restaurant_array['results'][$i]['rating'] . ' \ 5</p> </aside>
                 <hr>
                </article><section id="options">
@@ -157,7 +185,6 @@ include 'headersearch.php';
           echo '';
         }
         if($restaurant_array['results'][$i]['rating']){
-          echo '<p>Restaurant rating is equal to rating';
           echo '<p>Rating: ' . $restaurant_array['results'][$i]['rating'] . ' \ 5</p> </aside>
                 <hr>
                </article><section id="options">
@@ -206,8 +233,113 @@ include 'headersearch.php';
           }else {
           }
     }
-  }else {
+  }else if($sorting == 'rating') {
     for($i = 0; $i < 10; $i++){
+        if($rating_array[$i]['formatted_address']){
+          echo '<h5>Address:</h5><p>' . $rating_array['results'][$i]['formatted_address'] . '</p>';
+        }else {
+          echo '';
+        }
+        if($rating_array['results'][$i]['rating']){
+          echo '<p>Rating: ' . $rating_array['results'][$i]['rating'] . ' \ 5</p> </aside>
+                <hr>
+               </article><section id="options">
+                <ul id="left">
+                <li>Hours: </li>
+                </ul>
+                <ul id="right">';
+        }else {
+          echo ' ';
+        }
+        if($rating_array[$i]['price_level']){
+          echo '<p>Price Level: ' . $rating_array[$i]['price_level'] . '</p>';
+        }else {
+          echo '';
+        }
+        if($rating_array[$i]['opening_hours']['open_now'] === false){
+          echo ' <li>Closed now</li></ul>
+              </section>
+              <hr style="margin-top: 25%;">';
+        }else if($rating_array[$i]['opening_hours']['open_now'] === true){
+          echo '<li>Open now</li></ul>
+              </section>
+              <hr style="margin-top: 25%;">';
+        }
+        if($rating_array[$i]['name'] == "Giovanni's Italian Restaurant & Pizzeria"){
+          echo '  <form action="menuPage.php" method="post">
+                    <input type="hidden" name="foodType" value="italian" />
+                    <input type="submit" value="Menu" class="button" />
+                  </form>';
+        }else if($rating_array[$i]['name'] == "Cocina 214"){
+          echo '  <form action="menuPage.php" method="post">
+                    <input type="hidden" name="foodType" value="mexican" />
+                    <input type="submit" value="Menu" class="button" />
+                  </form>';
+        }else if($rating_array[$i]['name'] == "Sakari Sushi"){
+          echo '  <form action="menuPage.php" method="post">
+                    <input type="hidden" name="foodType" value="japanese" />
+                    <input type="submit" value="Menu" class="button" />
+                  </form>';
+        }
+      echo '</section>
+            </section>';
+          }
+    }else if($sorting == 'low') {
+      for($i = 0; $i < 10; $i++){
+          if($low_high_array[$i]['formatted_address']){
+            echo '<h5>Address:</h5><p>' . $low_high_array['results'][$i]['formatted_address'] . '</p>';
+          }else {
+            echo '';
+          }
+          if($low_high_array['results'][$i]['rating']){
+            echo '<p>Rating: ' . $low_high_array['results'][$i]['rating'] . ' \ 5</p> </aside>
+                  <hr>
+                 </article><section id="options">
+                  <ul id="left">
+                  <li>Hours: </li>
+                  </ul>
+                  <ul id="right">';
+          }else {
+            echo ' ';
+          }
+          if($low_high_array[$i]['price_level']){
+            echo '<p>Price Level: ' . $low_high_array[$i]['price_level'] . '</p>';
+          }else {
+            echo '';
+          }
+          if($low_high_array[$i]['opening_hours']['open_now'] === false){
+            echo ' <li>Closed now</li></ul>
+                </section>
+                <hr style="margin-top: 25%;">';
+          }else if($low_high_array[$i]['opening_hours']['open_now'] === true){
+            echo '<li>Open now</li></ul>
+                </section>
+                <hr style="margin-top: 25%;">';
+          }
+          if($low_high_array[$i]['name'] == "Giovanni's Italian Restaurant & Pizzeria"){
+            echo '  <form action="menuPage.php" method="post">
+                      <input type="hidden" name="foodType" value="italian" />
+                      <input type="submit" value="Menu" class="button" />
+                    </form>';
+          }else if($low_high_array[$i]['name'] == "Cocina 214"){
+            echo '  <form action="menuPage.php" method="post">
+                      <input type="hidden" name="foodType" value="mexican" />
+                      <input type="submit" value="Menu" class="button" />
+                    </form>';
+          }else if($low_high_array[$i]['name'] == "Sakari Sushi"){
+            echo '  <form action="menuPage.php" method="post">
+                      <input type="hidden" name="foodType" value="japanese" />
+                      <input type="submit" value="Menu" class="button" />
+                    </form>';
+          }
+        echo '</section>
+              </section>';
+            }
+      }else {
+    for($i = 0; $i < 10; $i++){
+      if($restaurant_array['results'][$i]['name'] === 'Spoleto- My Italian Kitchen (Winter Park)'){
+        echo '';
+      }
       echo '<section id="view">
           <article id="rest">
               <img src="images/olive.jpg"/>
@@ -218,7 +350,6 @@ include 'headersearch.php';
           echo '';
         }
         if($restaurant_array['results'][$i]['rating']){
-          echo '<p>Restaurant rating is equal to rating';
           echo '<p>Rating: ' . $restaurant_array['results'][$i]['rating'] . ' \ 5</p> </aside>
                 <hr>
                </article><section id="options">
@@ -269,8 +400,9 @@ include 'headersearch.php';
 
 
   include 'footer.php';
-  var_dump($rating);
-  var_dump($search_query);
-  var_dump($search_query_location);
+  // var_dump($restaurant_array);
+  // var_dump($rating);
+  // var_dump($search_query);
+  // var_dump($search_query_location);
   // var_dump($search_query_location);
  ?>
