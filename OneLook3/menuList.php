@@ -45,38 +45,28 @@ include 'headersearch.php';
     <input type="hidden" name="locationParam" value="' . $search_query_location . '">
     <input type="submit" name="rating" value="5" />
     <label class = "full" for="star5"></label>
-    <input type="submit" id="star4half" name="rating" value=4.5 />
-    <label class="half" for="star4half"></label>
     <input type="submit" id="star4" name="rating" value=4 />
     <label class = "full" for="star4"></label>
-    <input type="submit" id="star3half" name="rating" value=3.5 />
-    <label class="half" for="star3half"></label>
     <input type="submit" id="star3" name="rating" value=3 />
     <label class = "full" for="star3"></label>
-    <input type="submit" id="star2half" name="rating" value=2.5 />
-    <label class="half" for="star2half"></label>
     <input type="submit" id="star2" name="rating" value=2 />
     <label class = "full" for="star2"></label>
-    <input type="submit" id="star1half" name="rating" value=1.5 />
-    <label class="half" for="star1half"></label>
     <input type="submit" id="star1" name="rating" value=1 />
     <label class = "full" for="star1"></label>
-    <input type="submit" id="starhalf" name="rating" value=0.5 />
-    <label class="half" for="starhalf"></label>
 </form>
     <h3 id="price">Price</h3>
     <form class="pricing" action="menuList.php" method="post">
     <input type="hidden" name="searchFood" value="' . $search_query . '">
     <input type="hidden" name="locationParam" value="' . $search_query_location . '">
-    <input type="submit" name="pricing" value=4 />
+    <input type="submit" name="pricing" value=5 />
     <label class = "full" for="price5" ></label>
-    <input type="submit" id="price4" name="pricing" value=3 />
+    <input type="submit" id="price4" name="pricing" value=4 />
     <label class = "full" for="price4"></label>
     <input type="submit" id="price3" name="pricing" value=2 />
     <label class = "full" for="price3"></label>
-    <input type="submit" id="price2" name="pricing" value=1 />
+    <input type="submit" id="price2" name="pricing" value=2 />
     <label class = "full" for="price2"></label>
-    <input type="submit" id="price1" name="pricing" value=0 />
+    <input type="submit" id="price1" name="pricing" value=1 />
     <label class = "full" for="price1"></label>
 </form>
     </aside>';
@@ -113,7 +103,7 @@ include 'headersearch.php';
 
   if($rating){
     for($i = 0; $i < 10; $i++){
-      if($restaurant_array['results'][$i]['rating'] == $rating){
+      if($restaurant_array['results'][$i]['rating'] >= $rating && $restaurant_array['results'][$i]['rating'] <= $rating + 0.9){
       echo '<section id="view">
           <article id="rest">
               <img src="images/olive.jpg"/>
