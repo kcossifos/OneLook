@@ -8,6 +8,8 @@ $nav->setActive('home');
 
 include 'header.php';
 
+require_once("settings/db.php");
+$db_handle = new DBController();
   //Uncomment this line to show errors
   // error_reporting(0);
 
@@ -30,151 +32,113 @@ include 'header.php';
   $jumbochineseResult = $db->query("SELECT * FROM ".OneLook_PREFIX."items_continued_2 WHERE menu_id = '17'");
   $chinagardenResult = $db->query("SELECT * FROM ".OneLook_PREFIX."items_continued_2 WHERE menu_id = '18'");
 
-  if($_POST['foodType'] == 'Giovanni'){
-      echo '<h1></h1>';
-      echo '<table>';
-      echo '<tr><th>Name</th><th>Price</th></tr>';
-      foreach ($giovanniResult as $row) {
-        echo '<tr><td>' .$row['item_name'] . '</td><td>' .$row['item_price'] . '</td>  <button>Add to cart</button></tr>';
-      }
-      echo '</table';
-  }else if($_POST['foodType'] == 'Pannullo'){
-    echo '<h1></h1>';
-    echo '<table>';
-    echo '<tr><th>Name</th><th>Price</th></tr>';
-    foreach ($pannulloResult as $row) {
-      echo '<tr><td>' .$row['item_name'] . '</td><td>' .$row['item_price'] . '</td>  <button>Add to cart</button></tr>';
+
+    if(!empty($_GET["action"])) {
+    switch($_GET["action"]) {
+    	case "add":
+    		if(!empty($_POST["quantity"])) {
+    			$productByCode = $db_handle->runQuery("SELECT * FROM OneLook_items WHERE code='" . $_GET["code"] . "'");
+    			$itemArray = array($productByCode[0]["code"]=>array('name'=>$productByCode[0]["item_name"], 'code'=>$productByCode[0]["code"], 'quantity'=>$_POST["quantity"], 'price'=>$productByCode[0]["item_price"]));
+
+    			if(!empty($_SESSION["cart_item"])) {
+    				if(in_array($productByCode[0]["code"],$_SESSION["cart_item"])) {
+    					foreach($_SESSION["cart_item"] as $k => $v) {
+    							if($productByCode[0]["code"] == $k)
+    								$_SESSION["cart_item"][$k]["quantity"] = $_POST["quantity"];
+    					}
+    				} else {
+    					$_SESSION["cart_item"] = array_merge($_SESSION["cart_item"],$itemArray);
+    				}
+    			} else {
+    				$_SESSION["cart_item"] = $itemArray;
+    			}
+    		}
+    	break;
+    	case "remove":
+    		if(!empty($_SESSION["cart_item"])) {
+    			foreach($_SESSION["cart_item"] as $k => $v) {
+    					if($_GET["code"] == $k)
+    						unset($_SESSION["cart_item"][$k]);
+    					if(empty($_SESSION["cart_item"]))
+    						unset($_SESSION["cart_item"]);
+    			}
+    		}
+    	break;
+    	case "empty":
+    		unset($_SESSION["cart_item"]);
+    	break;
     }
-    echo '</table';
-  }else if($_POST['foodType'] == 'Rocco'){
-    echo '<h1></h1>';
-    echo '<table>';
-    echo '<tr><th>Name</th><th>Price</th></tr>';
-    foreach ($roccoResult as $row) {
-      echo '<tr><td>' .$row['item_name'] . '</td><td>' .$row['item_price'] . '</td>  <button>Add to cart</button></tr>';
     }
-    echo '</table';
-  }else if($_POST['foodType'] == 'Armando'){
-    echo '<h1></h1>';
-    echo '<table>';
-    echo '<tr><th>Name</th><th>Price</th></tr>';
-    foreach ($armandoResult as $row) {
-      echo '<tr><td>' .$row['item_name'] . '</td><td>' .$row['item_price'] . '</td>  <button>Add to cart</button></tr>';
+    ?>
+    <HTML>
+    <HEAD>
+    <TITLE>Simple PHP Shopping Cart</TITLE>
+    <link href="style.css" type="text/css" rel="stylesheet" />
+    </HEAD>
+    <BODY>
+    <div id="shopping-cart">
+    <div class="txt-heading">Shopping Cart <a id="btnEmpty" href="menuPage.php?action=empty">Empty Cart</a></div>
+    <?php
+    if(isset($_SESSION["cart_item"])){
+        $item_total = 0;
+    ?>
+    <table cellpadding="10" cellspacing="1">
+    <tbody>
+    <tr>
+    <th><strong>Name</strong></th>
+    <th><strong>Code</strong></th>
+    <th><strong>Quantity</strong></th>
+    <th><strong>Price</strong></th>
+    <th><strong>Action</strong></th>
+    </tr>
+    <?php
+        foreach ($_SESSION["cart_item"] as $item){
+    		?>
+    				<tr>
+    				<td><strong><?php echo $item["name"]; ?></strong></td>
+    				<td><?php echo $item["code"]; ?></td>
+    				<td><?php echo $item["quantity"]; ?></td>
+    				<td align=right><?php echo "$".$item["price"]; ?></td>
+    				<td><a href="menuPage.php?action=remove&code=<?php echo $item["code"]; ?>" class="btnRemoveAction">Remove Item</a></td>
+    				</tr>
+    				<?php
+            $item_total += ($item["price"]*$item["quantity"]);
+    		}
+    		?>
+
+    <tr>
+    <td colspan="5" align=right><strong>Total:</strong> <?php echo "$".$item_total; ?></td>
+    </tr>
+    </tbody>
+    </table>
+      <?php
     }
-    echo '</table';
-  }else if($_POST['foodType'] == 'Brio'){
-    echo '<h1></h1>';
-    echo '<table>';
-    echo '<tr><th>Name</th><th>Price</th></tr>';
-    foreach ($brioResult as $row) {
-      echo '<tr><td>' .$row['item_name'] . '</td><td>' .$row['item_price'] . '</td>  <button>Add to cart</button></tr>';
-    }
-    echo '</table';
-  }else if($_POST['foodType'] == 'AlBacio'){
-    echo '<h1></h1>';
-    echo '<table>';
-    echo '<tr><th>Name</th><th>Price</th></tr>';
-    foreach ($albacioResult as $row) {
-      echo '<tr><td>' .$row['item_name'] . '</td><td>' .$row['item_price'] . '</td>  <button>Add to cart</button></tr>';
-    }
-    echo '</table';
-  }else if($_POST['foodType'] == 'Carlucci'){
-    echo '<h1></h1>';
-    echo '<table>';
-    echo '<tr><th>Name</th><th>Price</th></tr>';
-    foreach ($carlucciResult as $row) {
-      echo '<tr><td>' .$row['item_name'] . '</td><td>' .$row['item_price'] . '</td>  <button>Add to cart</button></tr>';
-    }
-    echo '</table';
-  }else if($_POST['foodType'] == 'Tamarind'){
-    echo '<h1></h1>';
-    echo '<table>';
-    echo '<tr><th>Name</th><th>Price</th></tr>';
-    foreach ($tamarindResult as $row) {
-      echo '<tr><td>' .$row['item_name'] . '</td><td>' .$row['item_price'] . '</td>  <button>Add to cart</button></tr>';
-    }
-    echo '</table';
-  }else if($_POST['foodType'] == 'MyntFine'){
-    echo '<h1></h1>';
-    echo '<table>';
-    echo '<tr><th>Name</th><th>Price</th></tr>';
-    foreach ($myntfineResult as $row) {
-      echo '<tr><td>' .$row['item_name'] . '</td><td>' .$row['item_price'] . '</td>  <button>Add to cart</button></tr>';
-    }
-    echo '</table';
-  }else if($_POST['foodType'] == 'Moghul'){
-    echo '<h1></h1>';
-    echo '<table>';
-    echo '<tr><th>Name</th><th>Price</th></tr>';
-    foreach ($moghulResult as $row) {
-      echo '<tr><td>' .$row['item_name'] . '</td><td>' .$row['item_price'] . '</td>  <button>Add to cart</button></tr>';
-    }
-    echo '</table';
-  }else if($_POST['foodType'] == 'Cocina'){
-    echo '<h1></h1>';
-    echo '<table>';
-    echo '<tr><th>Name</th><th>Price</th></tr>';
-    foreach ($cocinaResult as $row) {
-      echo '<tr><td>' .$row['item_name'] . '</td><td>' .$row['item_price'] . '</td>  <button>Add to cart</button></tr>';
-    }
-    echo '</table';
-  }else if($_POST['foodType'] == 'PepeCantina'){
-    echo '<h1></h1>';
-    echo '<table>';
-    echo '<tr><th>Name</th><th>Price</th></tr>';
-    foreach ($pepecantinaResult as $row) {
-      echo '<tr><td>' .$row['item_name'] . '</td><td>' .$row['item_price'] . '</td>  <button>Add to cart</button></tr>';
-    }
-    echo '</table';
-  }else if($_POST['foodType'] == 'ElPotro'){
-    echo '<h1></h1>';
-    echo '<table>';
-    echo '<tr><th>Name</th><th>Price</th></tr>';
-    foreach ($elpotroResult as $row) {
-      echo '<tr><td>' .$row['item_name'] . '</td><td>' .$row['item_price'] . '</td>  <button>Add to cart</button></tr>';
-    }
-    echo '</table';
-  }else if($_POST['foodType'] == 'ParkStation'){
-    echo '<h1></h1>';
-    echo '<table>';
-    echo '<tr><th>Name</th><th>Price</th></tr>';
-    foreach ($parkstationResult as $row) {
-      echo '<tr><td>' .$row['item_name'] . '</td><td>' .$row['item_price'] . '</td>  <button>Add to cart</button></tr>';
-    }
-    echo '</table';
-  }else if($_POST['foodType'] == 'BurgerFi'){
-    echo '<h1></h1>';
-    echo '<table>';
-    echo '<tr><th>Name</th><th>Price</th></tr>';
-    foreach ($burgerfiResult as $row) {
-      echo '<tr><td>' .$row['item_name'] . '</td><td>' .$row['item_price'] . '</td>  <button>Add to cart</button></tr>';
-    }
-    echo '</table';
-  }else if($_POST['foodType'] == 'Ravenous'){
-    echo '<h1></h1>';
-    echo '<table>';
-    echo '<tr><th>Name</th><th>Price</th></tr>';
-    foreach ($ravenousResult as $row) {
-      echo '<tr><td>' .$row['item_name'] . '</td><td>' .$row['item_price'] . '</td>  <button>Add to cart</button></tr>';
-    }
-    echo '</table';
-  }else if($_POST['foodType'] == 'JumboChinese'){
-    echo '<h1></h1>';
-    echo '<table>';
-    echo '<tr><th>Name</th><th>Price</th></tr>';
-    foreach ($jumbochineseResult as $row) {
-      echo '<tr><td>' .$row['item_name'] . '</td><td>' .$row['item_price'] . '</td>  <button>Add to cart</button></tr>';
-    }
-    echo '</table';
-  }else if($_POST['foodType'] == 'ChinaGarden'){
-    echo '<h1></h1>';
-    echo '<table>';
-    echo '<tr><th>Name</th><th>Price</th></tr>';
-    foreach ($chinagardenResult as $row) {
-      echo '<tr><td>' .$row['item_name'] . '</td><td>' .$row['item_price'] . '</td>  <button>Add to cart</button></tr>';
-    }
-    echo '</table';
-  }
+    ?>
+    </div>
+
+    <div id="product-grid">
+    	<div class="txt-heading">Products</div>
+    	<?php
+    	$product_array = $db_handle->runQuery("SELECT * FROM OneLook_items WHERE menu_id = '1'");
+    	if (!empty($product_array)) {
+    		foreach($product_array as $key=>$value){
+    	?>
+    		<div class="product-item">
+    			<form method="post" action="menuPage.php?action=add&code=<?php echo $product_array[$key]["code"]; ?>">
+    			<div><strong><?php echo $product_array[$key]["item_name"]; ?></strong></div>
+    			<div class="product-price"><?php echo "$".$product_array[$key]["item_price"]; ?></div>
+    			<div><input type="text" name="quantity" value="1" size="2" /><input type="submit" value="Add to cart" class="btnAddAction" /></div>
+    			</form>
+    		</div>
+    	<?php
+    			}
+    	}
+
+
+
+
+
+
 
 
 
