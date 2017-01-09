@@ -81,6 +81,24 @@ echo "
 		</div>
 
 	</div>
+	<div class='row payment-container'>
+		<h2>Pay For Membership Here</h2>
+
+		<form action='checkout.php' method='post' autocomplete='off'>
+			<label for='item'>
+			Membership:
+				<input type='text' name='product'>
+			</label>
+			<label for='amount'>
+			Price:
+				<input type='text' name='price'>
+			</label>
+			<input type='submit' value='Pay'>
+		</form>
+		<p>You'll be taken to paypal to complete your payment</p>
+
+
+	</div>
 </div>";
 
 
