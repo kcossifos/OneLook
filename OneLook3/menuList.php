@@ -27,17 +27,31 @@ include 'headersearch.php';
   $restaurant_listing = restaurant_list($imploded, $search_query_location);
   $restaurant_array = json_decode($restaurant_listing, true);
 
-  echo '<h1>Restaurants in the Winter Park Area</h1>
+  echo '
 
+  <section>
+        <form action="menuList.php" method="POST">
+          <select id="locationthree" name="locationParam">
+            <option value="WinterPark">Winter Park</option>
+          </select>
+          <input placeholder="&#xf002;     Search for a restuarant menu or cuisine..." id="menuthree" name="searchFood" list="foodTypes">
+          <datalist id="foodTypes">
+            <option value="Mexican">
+            <option value="Italian">
+            <option value="Chinese">
+            <option value="American">
+            <option value="Indian">
+        </form>
+  </section>
   <aside id="filter">
     <h2>Filters</h2>
-<h3>Sort By</h3>
+<h3 id="sort">Sort By</h3>
 <form id="filtering" action="menuList.php" method="post">
   <input type="hidden" name="searchFood" value="' . $search_query . '">
   <input type="hidden" name="locationParam" value="' . $search_query_location . '">
-  <input type="submit" name="sort" value="low"> Cost - low to high<br>
-  <input type="submit" name="sort" value="high"> Cost - high to low<br>
-  <input type="submit" name="sort" value="rating"> Rating
+  <input type="checkbox" name="sort" value="low"> Cost - low to high<br>
+  <input type="checkbox" name="sort" value="high"> Cost - high to low<br>
+  <input type="checkbox" name="sort" value="rating"> Rating
 </form>
     <h3 id="rate">Rating</h3>
     <form class="rating" action="menuList.php" method="post">
@@ -46,7 +60,7 @@ include 'headersearch.php';
     <input type="submit" name="rating" value="5" />
     <label class = "full" for="star5"></label>
     <input type="submit" id="star4" name="rating" value=4 />
-    <label class = "full" for="star4"></label>
+    <label class= "full" for="star4"></label>
     <input type="submit" id="star3" name="rating" value=3 />
     <label class = "full" for="star3"></label>
     <input type="submit" id="star2" name="rating" value=2 />
@@ -106,7 +120,7 @@ include 'headersearch.php';
       if($restaurant_array['results'][$i]['rating'] >= $rating && $restaurant_array['results'][$i]['rating'] <= $rating + 0.9){
       echo '<section id="view">
           <article id="rest">
-              <img src="images/olive.jpg"/>
+              <img src="images/resticon.png"/>
           <aside>  <h3>' . $restaurant_array['results'][$i]['name'] . '</h3><br>';
         if($restaurant_array['results'][$i]['formatted_address']){
           echo '<h5>Address:</h5><p>' . $restaurant_array['results'][$i]['formatted_address'] . '</p>';
@@ -114,29 +128,32 @@ include 'headersearch.php';
           echo '';
         }
         if($restaurant_array['results'][$i]['rating']){
-          echo '<p>Rating: ' . $restaurant_array['results'][$i]['rating'] . ' \ 5</p> </aside>
+          echo '<p>Rating: ' . $restaurant_array['results'][$i]['rating'] . ' / 5</p> </aside>
                 <hr>
                </article><section id="options">
                 <ul id="left">
-                <li>Hours: </li>
+                 <li>Cuisine:</li>
+                 <li>Price:</li>
+                  <li>Hours: </li>
+
                 </ul>
                 <ul id="right">';
         }else {
           echo ' ';
         }
         if($restaurant_array['results'][$i]['price_level']){
-          echo '<p>Price Level: ' . $restaurant_array['results'][$i]['price_level'] . '</p>';
+          echo '<li class="italian">Italian</li><li>' . $restaurant_array['results'][$i]['price_level'] . '</li>';
         }else {
           echo '';
         }
         if($restaurant_array['results'][$i]['opening_hours']['open_now'] === false){
           echo ' <li>Closed now</li></ul>
               </section>
-              <hr style="margin-top: 25%;">';
+              <hr class="length">';
         }else if($restaurant_array['results'][$i]['opening_hours']['open_now'] === true){
           echo '<li>Open now</li></ul>
               </section>
-              <hr style="margin-top: 25%;">';
+              <hr class="length">';
         }
         if($restaurant_array['results'][$i]['name'] == "Giovanni's Italian Restaurant & Pizzeria"){
           // echo '
@@ -151,12 +168,7 @@ include 'headersearch.php';
                     <input type="hidden" name="foodType" value="mexican" />
                     <input type="submit" value="Menu" class="button" />
                   </form>';
-        }else if($restaurant_array['results'][$i]['name'] == "Sakari Sushi"){
-          echo '  <form action="menuPage.php" method="post">
-                    <input type="hidden" name="foodType" value="japanese" />
-                    <input type="submit" value="Menu" class="button" />
-                  </form>';
-        }
+                }
       echo '</section>
             </section>';
           }else {
@@ -167,7 +179,7 @@ include 'headersearch.php';
       if($restaurant_array['results'][$i]['price_level'] == $price_level){
       echo '<section id="view">
           <article id="rest">
-              <img src="images/olive.jpg"/>
+              <img src="images/resticon.png"/>
           <aside>  <h3>' . $restaurant_array['results'][$i]['name'] . '</h3><br>';
         if($restaurant_array['results'][$i]['formatted_address']){
           echo '<h5>Address:</h5><p>' . $restaurant_array['results'][$i]['formatted_address'] . '</p>';
@@ -175,10 +187,12 @@ include 'headersearch.php';
           echo '';
         }
         if($restaurant_array['results'][$i]['rating']){
-          echo '<p>Rating: ' . $restaurant_array['results'][$i]['rating'] . ' \ 5</p> </aside>
+          echo '<p>Rating: ' . $restaurant_array['results'][$i]['rating'] . ' / 5</p> </aside>
                 <hr>
                </article><section id="options">
                 <ul id="left">
+                <li>Cuisine:</li>
+                <li>Price:</li>
                 <li>Hours: </li>
                 </ul>
                 <ul id="right">';
@@ -186,18 +200,18 @@ include 'headersearch.php';
           echo ' ';
         }
         if($restaurant_array['results'][$i]['price_level']){
-          echo '<p>Price Level: ' . $restaurant_array['results'][$i]['price_level'] . '</p>';
+          echo '<li class="italian">Italian</li><li>' . $restaurant_array['results'][$i]['price_level'] . '</li>';
         }else {
           echo '';
         }
         if($restaurant_array['results'][$i]['opening_hours']['open_now'] === false){
           echo ' <li>Closed now</li></ul>
               </section>
-              <hr style="margin-top: 25%;">';
+              <hr class="length">';
         }else if($restaurant_array['results'][$i]['opening_hours']['open_now'] === true){
           echo '<li>Open now</li></ul>
               </section>
-              <hr style="margin-top: 25%;">';
+              <hr class="length">';
         }
         if($restaurant_array['results'][$i]['name'] == "Giovanni's Italian Restaurant & Pizzeria"){
           echo '  <form action="menuPage.php" method="post">
@@ -207,11 +221,6 @@ include 'headersearch.php';
         }else if($restaurant_array['results'][$i]['name'] == "Cocina 214"){
           echo '  <form action="menuPage.php" method="post">
                     <input type="hidden" name="foodType" value="mexican" />
-                    <input type="submit" value="Menu" class="button" />
-                  </form>';
-        }else if($restaurant_array['results'][$i]['name'] == "Sakari Sushi"){
-          echo '  <form action="menuPage.php" method="post">
-                    <input type="hidden" name="foodType" value="japanese" />
                     <input type="submit" value="Menu" class="button" />
                   </form>';
         }
@@ -227,7 +236,7 @@ include 'headersearch.php';
       }
         echo '<section id="view">
           <article id="rest">
-              <img src="images/olive.jpg"/>
+              <img src="images/resticon.png"/>
           <aside>  <h3>' . $rating_array[$i]['name'] . '</h3><br>';
         if($rating_array[$i]['formatted_address']){
           echo '<h5>Address:</h5><p>' . $rating_array[$i]['formatted_address'] . '</p>';
@@ -235,10 +244,12 @@ include 'headersearch.php';
           echo '';
         }
         if($rating_array[$i]['rating']){
-          echo '<p>Rating: ' . $rating_array[$i]['rating'] . ' \ 5</p> </aside>
+          echo '<p>Rating: ' . $rating_array[$i]['rating'] . ' / 5</p> </aside>
                 <hr>
                </article><section id="options">
                 <ul id="left">
+                <li>Cuisine:</li>
+                <li>Price:</li>
                 <li>Hours: </li>
                 </ul>
                 <ul id="right">';
@@ -246,18 +257,18 @@ include 'headersearch.php';
           echo ' ';
         }
         if($rating_array[$i]['price_level']){
-          echo '<p>Price Level: ' . $rating_array[$i]['price_level'] . '</p>';
+          echo '<li class="italian">Italian</li><li>' . $rating_array[$i]['price_level'] . '</li>';
         }else {
           echo '';
         }
         if($rating_array[$i]['opening_hours']['open_now'] === false){
           echo ' <li>Closed now</li></ul>
               </section>
-              <hr style="margin-top: 25%;">';
+              <hr class="length">';
         }else if($rating_array[$i]['opening_hours']['open_now'] === true){
           echo '<li>Open now</li></ul>
               </section>
-              <hr style="margin-top: 25%;">';
+              <hr class="length">';
         }
         if($rating_array[$i]['name'] == "Giovanni's Italian Restaurant & Pizzeria"){
           echo '  <form action="menuPage.php" method="post">
@@ -267,11 +278,6 @@ include 'headersearch.php';
         }else if($rating_array[$i]['name'] == "Cocina 214"){
           echo '  <form action="menuPage.php" method="post">
                     <input type="hidden" name="foodType" value="mexican" />
-                    <input type="submit" value="Menu" class="button" />
-                  </form>';
-        }else if($rating_array[$i]['name'] == "Sakari Sushi"){
-          echo '  <form action="menuPage.php" method="post">
-                    <input type="hidden" name="foodType" value="japanese" />
                     <input type="submit" value="Menu" class="button" />
                   </form>';
         }
@@ -286,10 +292,12 @@ include 'headersearch.php';
             echo '';
           }
           if($low_high_array[$i]['rating']){
-            echo '<p>Rating: ' . $low_high_array[$i]['rating'] . ' \ 5</p> </aside>
+            echo '<p>Rating: ' . $low_high_array[$i]['rating'] . ' / 5</p> </aside>
                   <hr>
                  </article><section id="options">
                   <ul id="left">
+                  <li>Cuisine:</li>
+                  <li>Price:</li>
                   <li>Hours: </li>
                   </ul>
                   <ul id="right">';
@@ -297,18 +305,18 @@ include 'headersearch.php';
             echo ' ';
           }
           if($low_high_array[$i]['price_level']){
-            echo '<p>Price Level: ' . $low_high_array[$i]['price_level'] . '</p>';
+            echo '<li class="italian">Italian</li><li>' . $low_high_array[$i]['price_level'] . '</li>';
           }else {
             echo '';
           }
           if($low_high_array[$i]['opening_hours']['open_now'] === false){
             echo ' <li>Closed now</li></ul>
                 </section>
-                <hr style="margin-top: 25%;">';
+                <hr class="length">';
           }else if($low_high_array[$i]['opening_hours']['open_now'] === true){
             echo '<li>Open now</li></ul>
                 </section>
-                <hr style="margin-top: 25%;">';
+                <hr class="length">';
           }
           if($low_high_array[$i]['name'] == "Giovanni's Italian Restaurant & Pizzeria"){
             echo '  <form action="menuPage.php" method="post">
@@ -318,11 +326,6 @@ include 'headersearch.php';
           }else if($low_high_array[$i]['name'] == "Cocina 214"){
             echo '  <form action="menuPage.php" method="post">
                       <input type="hidden" name="foodType" value="mexican" />
-                      <input type="submit" value="Menu" class="button" />
-                    </form>';
-          }else if($low_high_array[$i]['name'] == "Sakari Sushi"){
-            echo '  <form action="menuPage.php" method="post">
-                      <input type="hidden" name="foodType" value="japanese" />
                       <input type="submit" value="Menu" class="button" />
                     </form>';
           }
@@ -336,7 +339,7 @@ include 'headersearch.php';
       }
       echo '<section id="view">
           <article id="rest">
-              <img src="images/olive.jpg"/>
+              <img src="images/resticon.png"/>
           <aside>  <h3>' . $restaurant_array['results'][$i]['name'] . '</h3><br>';
         if($restaurant_array['results'][$i]['formatted_address']){
           echo '<h5>Address:</h5><p>' . $restaurant_array['results'][$i]['formatted_address'] . '</p>';
@@ -344,10 +347,12 @@ include 'headersearch.php';
           echo '';
         }
         if($restaurant_array['results'][$i]['rating']){
-          echo '<p>Rating: ' . $restaurant_array['results'][$i]['rating'] . ' \ 5</p> </aside>
+          echo '<p>Rating: ' . $restaurant_array['results'][$i]['rating'] . ' / 5</p> </aside>
                 <hr>
                </article><section id="options">
                 <ul id="left">
+                <li>Cuisine:</li>
+                <li>Price:</li>
                 <li>Hours: </li>
                 </ul>
                 <ul id="right">';
@@ -355,111 +360,129 @@ include 'headersearch.php';
           echo ' ';
         }
         if($restaurant_array['results'][$i]['price_level']){
-          echo '<p>Price Level: ' . $restaurant_array['results'][$i]['price_level'] . '</p>';
+          echo '<li class="italian">Italian</li><li>' . $restaurant_array['results'][$i]['price_level'] . '</li>';
         }else {
           echo '';
         }
         if($restaurant_array['results'][$i]['opening_hours']['open_now'] === false){
           echo ' <li>Closed now</li></ul>
               </section>
-              <hr style="margin-top: 25%;">';
+              <hr class="length">';
         }else if($restaurant_array['results'][$i]['opening_hours']['open_now'] === true){
           echo '<li>Open now</li></ul>
               </section>
-              <hr style="margin-top: 25%;">';
+              <hr class="length">';
         }
-        if($restaurant_array['results'][$i]['name'] == "Giovanni's Italian Restaurant & Pizzeria"){
+        if($restaurant_array['results'][$i]['name'] === "Giovanni's Italian Restaurant & Pizzeria"){
           // echo '
           //     <section> <a href="menuPage.php"><i class="fa fa-cutlery" aria-hidden="true"></i>  View Menu</a>';
 
-          echo '  <form action="menuPage.php" method="post">
+          echo '  <form action="giovanni.php" method="post">
                     <input type="hidden" name="foodType" value="Giovanni" />
-                    <input type="submit" value="Menu" class="button" />
+                    <i class="fa fa-cutlery" aria-hidden="true"></i>
+                    <input id="food" type="submit" value="View Menu" class="button" />
                   </form>';
-        }else if($restaurant_array['results'][$i]['name'] == "Pannullo's Italian Restaurant"){
-          echo '  <form action="menuPage.php" method="post">
-                    <input type="hidden" name="foodType" value="Pannullo" />
-                    <input type="submit" value="Menu" class="button" />
+        }else if($restaurant_array['results'][$i]['name'] === "Pannullo's Italian Restaurant"){
+          echo '   <form action="pannullos.php" method="post">
+                    <input type="hidden" name="foodType" value="Pannullos" />
+                      <i class="fa fa-cutlery" aria-hidden="true"></i>
+                      <input id="food" type="submit" value="View Menu" class="button" />
                   </form>';
-        }else if($restaurant_array['results'][$i]['name'] == "Rocco's Italian Grille"){
-          echo '  <form action="menuPage.php" method="post">
-                    <input type="hidden" name="foodType" value="Rocco" />
-                    <input type="submit" value="Menu" class="button" />
+        }else if($restaurant_array['results'][$i]['name'] === "Rocco's Italian Grille"){
+          echo '   <form action="roccos.php" method="post">
+                    <input type="hidden" name="foodType" value="Roccos" />
+                    <i class="fa fa-cutlery" aria-hidden="true"></i>
+                    <input id="food" type="submit" value="View Menu" class="button" />
                   </form>';
-        }else if($restaurant_array['results'][$i]['name'] == "Armando's"){
-          echo '  <form action="menuPage.php" method="post">
+        }else if($restaurant_array['results'][$i]['name'] === "Armando's"){
+          echo '   <form action="armandos.php" method="post">
                     <input type="hidden" name="foodType" value="Armando" />
-                    <input type="submit" value="Menu" class="button" />
+                      <i class="fa fa-cutlery" aria-hidden="true"></i>
+                      <input id="food" type="submit" value="View Menu" class="button" />
                   </form>';
-        }else if($restaurant_array['results'][$i]['name'] == "Brio Tuscan Grille"){
-          echo '  <form action="menuPage.php" method="post">
+        }else if($restaurant_array['results'][$i]['name'] === "Brio Tuscan Grille"){
+          echo '   <form action="brio.php" method="post">
                     <input type="hidden" name="foodType" value="Brio" />
-                    <input type="submit" value="Menu" class="button" />
+                    <i class="fa fa-cutlery" aria-hidden="true"></i>
+                    <input id="food" type="submit" value="View Menu" class="button" />
                   </form>';
-        }else if($restaurant_array['results'][$i]['name'] == "Al Bacio Florida"){
-          echo '  <form action="menuPage.php" method="post">
+        }else if($restaurant_array['results'][$i]['name'] === "Al Bacio Florida"){
+          echo '  <form action="albacio.php" method="post">
                     <input type="hidden" name="foodType" value="AlBacio" />
-                    <input type="submit" value="Menu" class="button" />
+                      <i class="fa fa-cutlery" aria-hidden="true"></i>
+                      <input id="food" type="submit" value="View Menu" class="button" />
                   </form>';
-        }else if($restaurant_array['results'][$i]['name'] == "Carlucci's of Winter Park"){
-          echo '  <form action="menuPage.php" method="post">
+        }else if($restaurant_array['results'][$i]['name'] === "Carlucci's of Winter Park"){
+          echo '  <form action="carlucci.php" method="post">
                     <input type="hidden" name="foodType" value="Carlucci" />
-                    <input type="submit" value="Menu" class="button" />
+                      <i class="fa fa-cutlery" aria-hidden="true"></i>
+                    <input id="food" type="submit" value="View Menu" class="button" />
                   </form>';
         }else if($restaurant_array['results'][$i]['name'] == "Tamarind Indian Cuisine"){
-          echo '  <form action="menuPage.php" method="post">
+          echo '  <form action="tamarind.php" method="post">
                     <input type="hidden" name="foodType" value="Tamarind" />
-                    <input type="submit" value="Menu" class="button" />
+                    <i class="fa fa-cutlery" aria-hidden="true"></i>
+                     <input id="food" type="submit" value="View Menu" class="button" />
                   </form>';
         }else if($restaurant_array['results'][$i]['name'] == "Mynt Fine Indian Cuisine"){
-          echo '  <form action="menuPage.php" method="post">
+          echo '  <form action="mynt.php" method="post">
                     <input type="hidden" name="foodType" value="MyntFine" />
-                    <input type="submit" value="Menu" class="button" />
+                      <i class="fa fa-cutlery" aria-hidden="true"></i>
+                      <input id="food" type="submit" value="View Menu" class="button" />
                   </form>';
         }else if($restaurant_array['results'][$i]['name'] == "Moghul Indian Cuisine"){
-          echo '  <form action="menuPage.php" method="post">
+          echo '  <form action="moghul.php" method="post">
                     <input type="hidden" name="foodType" value="Moghul" />
-                    <input type="submit" value="Menu" class="button" />
+                    <i class="fa fa-cutlery" aria-hidden="true"></i>
+                  <input id="food" type="submit" value="View Menu" class="button" />
                   </form>';
         }else if($restaurant_array['results'][$i]['name'] == "Cocina214"){
-          echo '  <form action="menuPage.php" method="post">
+          echo '  <form action="cocina.php" method="post">
                     <input type="hidden" name="foodType" value="Cocina" />
-                    <input type="submit" value="Menu" class="button" />
+                    <i class="fa fa-cutlery" aria-hidden="true"></i>
+                    <input id="food" type="submit" value="View Menu" class="button" />
                   </form>';
         }else if($restaurant_array['results'][$i]['name'] == "Pepe's Cantina"){
-          echo '  <form action="menuPage.php" method="post">
+          echo '  <form action="pepes.php" method="post">
                     <input type="hidden" name="foodType" value="PepeCantina" />
-                    <input type="submit" value="Menu" class="button" />
+                    <i class="fa fa-cutlery" aria-hidden="true"></i>
+                    <input id="food" type="submit" value="View Menu" class="button" />
                   </form>';
         }else if($restaurant_array['results'][$i]['name'] == "El Potro Mexican Restaurant"){
-          echo '  <form action="menuPage.php" method="post">
+          echo '  <form action="elpotro.php" method="post">
                     <input type="hidden" name="foodType" value="ElPotro" />
-                    <input type="submit" value="Menu" class="button" />
+                      <i class="fa fa-cutlery" aria-hidden="true"></i>
+                      <input id="food" type="submit" value="View Menu" class="button" />
                   </form>';
         }else if($restaurant_array['results'][$i]['name'] == "Park Station"){
-          echo '  <form action="menuPage.php" method="post">
+          echo '  <form action="park.php" method="post">
                     <input type="hidden" name="foodType" value="ParkStation" />
-                    <input type="submit" value="Menu" class="button" />
+                      <i class="fa fa-cutlery" aria-hidden="true"></i>
+                      <input id="food" type="submit" value="View Menu" class="button" />
                   </form>';
         }else if($restaurant_array['results'][$i]['name'] == "BurgerFi"){
-          echo '  <form action="menuPage.php" method="post">
+          echo '  <form action="burgerfi.php" method="post">
                     <input type="hidden" name="foodType" value="BurgerFi" />
-                    <input type="submit" value="Menu" class="button" />
+                    <i class="fa fa-cutlery" aria-hidden="true"></i>
+                    <input id="food" type="submit" value="View Menu" class="button" />
                   </form>';
         }else if($restaurant_array['results'][$i]['name'] == "The Ravenous Pig"){
-          echo '  <form action="menuPage.php" method="post">
+          echo '  <form action="ravenous.php" method="post">
                     <input type="hidden" name="foodType" value="Ravenous" />
-                    <input type="submit" value="Menu" class="button" />
+                      <i class="fa fa-cutlery" aria-hidden="true"></i>
+                       <input id="food" type="submit" value="View Menu" class="button" />
                   </form>';
         }else if($restaurant_array['results'][$i]['name'] == "Jumbo Chinese Restaurant"){
-          echo '  <form action="menuPage.php" method="post">
+          echo '  <form action="jumbo.php" method="post">
                     <input type="hidden" name="foodType" value="JumboChinese" />
-                    <input type="submit" value="Menu" class="button" />
+                      <i class="fa fa-cutlery" aria-hidden="true"></i>
+                      <input id="food" type="submit" value="View Menu" class="button" />
                   </form>';
         }else if($restaurant_array['results'][$i]['name'] == "China Garden Restaurant"){
-          echo '  <form action="menuPage.php" method="post">
+          echo '  <form action="china.php" method="post">
                     <input type="hidden" name="foodType" value="ChinaGarden" />
-                    <input type="submit" value="Menu" class="button" />
+                      <i class="fa fa-cutlery" aria-hidden="true"></i>
+                      <input id="food" type="submit" value="View Menu" class="button" />
                   </form>';
         }
       echo '</section>

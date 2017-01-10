@@ -55,16 +55,14 @@ echo "
 
 
 
-<div style='background-color: #3E0808; width: 1450px;'class="container">
+<div id='footer' style='background-color: #3E0808;'class="container">
 			<div class="row-fluid">
 				<div class="span11">
 						<p class="muted pull-right">© 2016 OneLook. All rights reserved</p>
-				</div>
-			</div>
-  </div>
-</div>
-
-<script src="//ajax.googleapis.com/ajax/settingss/jquery/1.9.1/jquery.min.js"></script>
+          </div>
+        </div>
+      </div>
+</script>
 <script>window.jQuery || document.write('<script src="<?php echo $set_class->url;?>/js/jquery-1.9.1.min.js"><\/script>')</script>
 
 <script src="<?php echo $set_class->url;?>/js/bootstrap.min.js"></script>
