@@ -46,7 +46,6 @@ if(!$the_user->islg())
                             <datalist id='foodTypes'>
                               <option value='Mexican'>
                               <option value='Italian'>
-                              <option value='Japanese'>
                               <option value='Chinese'>
                               <option value='American'>
                               <option value='Indian'>

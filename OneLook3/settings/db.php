@@ -7,3 +7,4 @@ $set_class->db_pass = 'root'; // database password
 $set_class->db_name = 'OneLook'; // database name
 
 define('OneLook_PREFIX', 'OneLook_');
+?>

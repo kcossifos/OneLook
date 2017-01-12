@@ -891,6 +891,7 @@
 }
 
 @media (max-width: 480px) {
+
   .nav-collapse {
     -webkit-transform: translate3d(0, 0, 0);
   }
@@ -943,7 +944,7 @@
   }
 }
 
-@media (max-width: 979px) {
+/*@media (max-width: 600px) {
   body {
     padding-top: 0;
   }
@@ -1086,9 +1087,9 @@
     height: 0;
     overflow: hidden;
   }
-  .navbar .btn-navbar {
+  /*.navbar .btn-navbar {
     display: block;
-  }
+  }*/
   .navbar-static .navbar-inner {
     padding-right: 10px;
     padding-left: 10px;
@@ -1100,4 +1101,4 @@
     height: auto !important;
     overflow: visible !important;
   }
-}
+}*/

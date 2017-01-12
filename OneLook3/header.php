@@ -11,10 +11,7 @@ if(!$the_user->islg())
 
     <head>
         <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <title><?php echo $page->title; ?></title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width">
         <script src="https://use.fontawesome.com/20929198f1.js"></script>
         <link rel="stylesheet" href="<?php echo $set_class->url; ?>/css/bootstrap.css">
         <style>
@@ -24,7 +21,8 @@ if(!$the_user->islg())
         </style>
         <link rel="stylesheet" href="<?php echo $set_class->url; ?>/css/bootstrap-responsive.css">
         <link rel="stylesheet" href="<?php echo $set_class->url; ?>/css/stylesheet.css">
-
+      <link href="https://fonts.googleapis.com/css?family=Lato|Montserrat" rel="stylesheet">
+      <script src="https://use.fontawesome.com/20929198f1.js"></script>
     </head>
     <body>
         <div class="navbar navbar-inverse navbar-fixed-top">
@@ -77,9 +75,9 @@ echo "</ul>";
 if(!$the_user->islg()) {
 
 echo "<span class='pull-right'>
-        <a href='$set_class->url/register.php' class='btn btn-primary'>Sign Up</a>
+        <a href='$set_class->url/register.php' id='signs' class='btn btn-primary'>Sign Up</a>
         <!-- <a href='$set_class->url/login.php' class='btn btn-small'>Login</a> -->
-        <a href='#loginModal' data-toggle='modal' class='btn'>Login</a>
+        <a href='#loginModal' data-toggle='modal' id='logs' class='btn'>Login</a>
     </span>
     ";
 }
