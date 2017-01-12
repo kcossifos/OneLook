@@ -30,10 +30,6 @@ require_once("settings/db.php");
   $chinagardenResult = $db->query("SELECT * FROM ".OneLook_PREFIX."items_continued_2 WHERE menu_id = '18'");
 
 
-
-
-
-
 include 'footer.php';
   // var_dump($total_num_rows);
 

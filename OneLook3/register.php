@@ -101,7 +101,7 @@ if(isset($page->success)) {
 
 
   echo "
-  <div style='margin-top: 100px; margin-bottom:100px;' class='container'>
+  <div id='reg' class='container'>
     <div class='span3 hidden-phone'></div>
       <div class='span6'>
 
