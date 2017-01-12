@@ -91,7 +91,7 @@ include 'header.php';
 
 
 echo "
-<div style='margin-top: 150px; margin-bottom: 150px;' class='container'>
+<div id='userlist' class='container'>
 
   <h3 class='pull-left'>Users on ".$set_class->site_name."</h3>
 

@@ -878,6 +878,28 @@ button.accordion.active:after {
 	margin-left: 50px;
 }
 
+
+/*         User List     */
+#userlist {
+	margin-top: 150px;
+	margin-bottom: 150px;
+	width: 80%;
+}
+
+#users {
+	margin-top: 100px;
+	margin-bottom: 100px;
+}
+
+
+/* Account Settings */
+#infopage {
+	margin-bottom: 110px;
+	margin-top: 100px;
+	margin-left: 300px;
+	width: 500px;
+}
+
 @media (min-width: 1100px) and (max-width: 1350px) {
 	div>a>img {
 		margin-left: 60px;
@@ -1673,6 +1695,14 @@ button.accordion.active:after {
 		margin-left: -60px;
 	}
 
+	/* Account Settings */
+	#infopage {
+		margin-bottom: 150px;
+		margin-top: 200px;
+		margin-left: 200px;
+		width: 500px;
+	}
+
 }
 @media only screen and (max-width: 800px) {
 	div>a>img {
@@ -2423,6 +2453,13 @@ button.accordion.active:after {
 		margin-bottom:50px;
 		margin-left: -60px;
 	}
+
+	/* Account Settings */
+	#infopage {
+		margin-bottom: 80px;
+		margin-left: 50px;
+	}
+
 }
 @media only screen and (max-width: 600px) {
 	div>a>img {
@@ -3277,6 +3314,14 @@ button.accordion.active:after {
 		font-size: 1rem;
 	}
 
+	/* Account Settings */
+	#infopage {
+		margin-bottom: 180px;
+		margin-top: 200px;
+		margin-left: 10px;
+		width: 400px;
+	}
+
 
 }
 @media only screen and (max-width: 450px) {
@@ -3998,6 +4043,29 @@ button.accordion.active:after {
 		margin-left: -60px;
 		width: 350px;
 	}
+
+
+	/*     Profile Page     */
+#userinfo > li.dropdown {
+	position: absolute;
+	top: 10%;
+	left: -350px;
+	}
+
+	/* Account Settings */
+	#infopage {
+		margin-bottom: 95px;
+		margin-top: 150px;
+		margin-left: -55px;
+		width: 100px;
+	}
+
+	#infopage > .span6 > a {
+		position: absolute;
+		top: 80%;
+		left: 5%;
+	}
+
 }
 @media (min-width: 330px) and (max-width: 375px) {
 	div>a>img {
@@ -4930,15 +4998,38 @@ button.accordion.active:after {
 		margin-left: -50px;
 		width: 350px;
 	}
+
+	/*     Profile Page     */
+	#userinfo > li.dropdown {
+		position: absolute;
+		top: 10%;
+		left: -400px;
+		}
+
+	/* Account Settings */
+	#infopage {
+		margin-bottom: 115px;
+		margin-top: 100px;
+		margin-left: -55px;
+		width: 100px;
+	}
+
+	#infopage > .span6 > a {
+		position: absolute;
+		top: 85%;
+		left: 5%;
+	}
+
 }
 @media only screen and (max-width: 320px) {
 
   div>a>img {
-    top: 10px;
-    left: 0px;
-		position: absolute;
+		top: 10px;
+	left: 0px;
+	position: absolute;
+	width: 120px;
+	height: 80px;
 	}
-
   #logs {
     margin-top: 5px;
     margin-left: -5px;
@@ -5610,5 +5701,27 @@ button.accordion.active:after {
 		margin-bottom: 50px;
 		margin-left: -60px;
 		width: 350px;
+	}
+
+
+	/*     Profile Page     */
+	#userinfo > li.dropdown {
+		position: absolute;
+		top: 10%;
+		left: -500px;
+		}
+
+	/* Account Settings */
+	#infopage {
+		margin-bottom: 95px;
+		margin-top: 50px;
+		margin-left: -55px;
+		width: 100px;
+	}
+
+	#infopage > .span6 > a {
+		position: absolute;
+		top: 90%;
+		left: 5%;
 	}
 }

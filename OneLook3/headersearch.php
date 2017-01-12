@@ -52,7 +52,7 @@ if(!$the_user->islg())
                           </form>
                     </section>
                     <div class="nav-collapse collapse">
-                        <ul class="nav pull-right">
+                        <ul id='userinfo' class="nav pull-right">
 
 
 <?php

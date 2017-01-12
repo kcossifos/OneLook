@@ -87,7 +87,7 @@ include 'header.php';
 
 
 echo "
-<div class=\"container\"><div class='span6'>";
+<div id='infopage' class=\"container\"><div class='span6'>";
 
 
 if(isset($page->error))
@@ -98,7 +98,7 @@ else if(isset($page->success))
 
 if(isset($_GET['password']) && ($the_user->data->userid == $u->userid) ) {
 
-	echo "<form style='margin-top: 100px; margin-bottom: 100px; margin-left: 300px; width: 500px;' class='form-horizontal well' action='#' method='post'>
+	echo "<form  class='form-horizontal well' action='#' method='post'>
 		        <fieldset>
 		            <legend>Change Password</legend>
 
@@ -138,7 +138,7 @@ if(isset($_GET['password']) && ($the_user->data->userid == $u->userid) ) {
 
 } else {
 
-	echo "<form  style='margin-top: 100px; margin-bottom: 100px; margin-left: 300px; width: 500px;' class='form-horizontal well' action='#' method='post'>
+	echo "<form  class='form-horizontal well' action='#' method='post'>
 		        <fieldset>
 		            <legend>Edit info of ".$html_options->html($u->username)."</legend>";
 

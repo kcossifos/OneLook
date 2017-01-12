@@ -36,7 +36,7 @@ if(!$the_user->islg())
                     <a class="brand" href="<?php echo $set_class->url; ?>"><?php echo "<img src='images/ArialLogo.png'/>"; ?></a>
                     <a class="brand" href="<?php echo $set_class->url; ?>"><?php echo "<img src='../images/ArialLogo.png'/>"; ?></a>
                     <div class="nav-collapse collapse">
-                        <ul class="nav pull-right">
+                        <ul  id='userinfo' class="nav pull-right">
 
 
 <?php
