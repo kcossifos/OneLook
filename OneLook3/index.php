@@ -1,14 +1,8 @@
 <?php
 
 include 'settings/init.php';
-
-
-
 $page->title = 'Welcome to '. $set_class->site_name;
-
 $nav->setActive('home');
-
-
 include 'header.php';
 
 
