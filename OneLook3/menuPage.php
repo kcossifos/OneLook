@@ -10,9 +10,6 @@ include 'header.php';
 
 require_once("settings/db.php");
 
-  //Uncomment this line to show errors
-  // error_reporting(0);
-
   $giovanniResult = $db->query("SELECT * FROM ".OneLook_PREFIX."items WHERE menu_id = '1'");
   $pannulloResult = $db->query("SELECT * FROM ".OneLook_PREFIX."items WHERE menu_id = '2'");
   $roccoResult = $db->query("SELECT * FROM ".OneLook_PREFIX."items WHERE menu_id = '3'");
