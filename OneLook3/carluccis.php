@@ -9,14 +9,13 @@ $nav->setActive('home');
 
 include 'headersearch.php';
 
-//current URL of the Page. carluccis_update.php redirects back to this URL
-$current_url = urlencode($url="http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']);
+$menupage = urlencode($url="http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']);
 ?>
 <!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Shopping Cart</title>
+
 <link href="css/stylesheet.css" rel="stylesheet" type="text/css">
 </head>
 <body>
@@ -51,8 +50,6 @@ $current_url = urlencode($url="http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_
 			<hr id='endtab'>
 </section>
 
-
-<!-- View Cart Box Start -->
 <?php
 if(isset($_SESSION["carluccis_items"]) && count($_SESSION["carluccis_items"])>0)
 {
@@ -63,46 +60,42 @@ if(isset($_SESSION["carluccis_items"]) && count($_SESSION["carluccis_items"])>0)
 	echo '<tbody>';
 
 	$total =0;
-	$b = 0;
+	
 	foreach ($_SESSION["carluccis_items"] as $menu_items)
 	{
-		$item_name = $menu_items["item_name"];
-		$item_qty = $menu_items["item_qty"];
-		$item_price = $menu_items["item_price"];
+		$menu_name = $menu_items["item_name"];
+		$menu_qty = $menu_items["item_qty"];
+		$menu_price = $menu_items["item_price"];
 		$code = $menu_items["code"];
 		echo '<tr>';
-		echo '<td>Qty <input type="text" size="2" maxlength="2" name="item_qty['.$code.']" value="'.$item_qty.'" /></td>';
-		echo '<td>'.$item_name.'</td>';
+		echo '<td>Qty <input type="text" size="2" maxlength="2" name="item_qty['.$code.']" value="'.$menu_qty.'" /></td>';
+		echo '<td>'.$menu_name.'</td>';
 		echo '<td><input type="checkbox" name="remove_code[]" value="'.$code.'" /> Remove</td>';
 		echo '</tr>';
-		$subtotal = ($item_price * $item_qty);
+		$subtotal = ($menu_price * $menu_qty);
 		$total = ($total + $subtotal);
 	}
 	echo '<td colspan="4">';
-	echo '<button type="submit">Update</button><a href="carluccis_cart.php" class="button">Checkout</a>';
+	echo '<button class="button" type="submit">Update</button><a href="carluccis_cart.php" class="button">Checkout</a>';
 	echo '</td>';
 	echo '</tbody>';
 	echo '</table>';
 
-	$current_url = urlencode($url="http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']);
-	echo '<input type="hidden" name="return_url" value="'.$current_url.'" />';
+	$menupage = urlencode($url="http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']);
+	echo '<input type="hidden" name="return_url" value="'.$menupage.'" />';
 	echo '</form>';
 	echo '</div>';
 
 }
 ?>
-<!-- View Cart Box End -->
 
-
-<!-- items List Start -->
 <?php
 $data = $mysqli->query("SELECT item_id, item_name, item_price, menu_id, category_id, descrip, section_id, code FROM OneLook_items WHERE menu_id = '7'");
 if($data){
-$single_item = '<ul class="items">';
-//fetch results set as object and output HTML
+$food_item = '<ul class="items">';
 while($obj = $data->fetch_object())
 {
-$single_item .= <<<EOT
+$food_item .= <<<EOT
 	<li class="item">
 	<form method="post" action="carluccis_update.php">
 	<div class="item-content"><h3>{$obj->item_name}</h3>
@@ -120,17 +113,20 @@ $single_item .= <<<EOT
 	</fieldset>
 	<input type="hidden" name="code" value="{$obj->code}" />
 	<input type="hidden" name="type" value="add" />
-	<input type="hidden" name="return_url" value="{$current_url}" />
-	<div align="center"><button type="submit" class="add_to_cart">Add</button></div>
+	<input type="hidden" name="return_url" value="{$menupage}" />
+	<div align="center"><button type="submit" >Add</button></div>
 	</div></div>
 	</form>
 	</li>
 EOT;
 }
-$single_item .= '</ul>';
-echo $single_item;
+$food_item .= '</ul>';
+echo $food_item;
 }
 ?>
-<!-- items List End -->
 </body>
 </html>
+<?php
+include 'footer.php';
+
+?>

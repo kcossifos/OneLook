@@ -9,7 +9,7 @@ $nav->setActive('home');
 
 include 'headersearch.php';
 
-$current_url = urlencode($url="http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']);
+$menupage = urlencode($url="http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']);
 ?>
 <!DOCTYPE html>
 <html>
@@ -58,33 +58,33 @@ if(isset($_SESSION["albacio_items"]) && count($_SESSION["albacio_items"])>0)
 	echo '<div class="shoppingcart">';
 	echo '<h3>Your Menu Items</h3>';
 	echo '<form method="post" action="albacio_update.php">';
-	echo '<table width="100%"  cellpadding="6" cellspacing="0">';
+	echo '<table width="100%"  cellpadding="8">';
 	echo '<tbody>';
 
 	$total =0;
-	$b = 0;
+
 	foreach ($_SESSION["albacio_items"] as $menu_items)
 	{
-		$item_name = $menu_items["item_name"];
-		$item_qty = $menu_items["item_qty"];
-		$item_price = $menu_items["item_price"];
+		$menu_name = $menu_items["item_name"];
+		$menu_qty = $menu_items["item_qty"];
+		$menu_price = $menu_items["item_price"];
 		$code = $menu_items["code"];
 		echo '<tr>';
-		echo '<td>Qty <input type="text" size="2" maxlength="2" name="item_qty['.$code.']" value="'.$item_qty.'" /></td>';
-		echo '<td>'.$item_name.'</td>';
+		echo '<td>Qty <input type="text" size="2" maxlength="2" name="item_qty['.$code.']" value="'.$menu_qty.'" /></td>';
+		echo '<td>'.$menu_name.'</td>';
 		echo '<td><input type="checkbox" name="remove_code[]" value="'.$code.'" /> Remove</td>';
 		echo '</tr>';
-		$subtotal = ($item_price * $item_qty);
+		$subtotal = ($menu_price * $menu_qty);
 		$total = ($total + $subtotal);
 	}
 	echo '<td colspan="4">';
-	echo '<button type="submit">Update</button><a href="albacio_cart.php" class="button">Checkout</a>';
+	echo '<button class="button" type="submit">Update</button><a href="albacio_cart.php" class="button">Checkout</a>';
 	echo '</td>';
 	echo '</tbody>';
 	echo '</table>';
 
-	$current_url = urlencode($url="http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']);
-	echo '<input type="hidden" name="return_url" value="'.$current_url.'" />';
+	$menupage = urlencode($url="http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']);
+	echo '<input type="hidden" name="return_url" value="'.$menupage.'" />';
 	echo '</form>';
 	echo '</div>';
 
@@ -94,10 +94,10 @@ if(isset($_SESSION["albacio_items"]) && count($_SESSION["albacio_items"])>0)
 <?php
 $data = $mysqli->query("SELECT item_id, item_name, item_price, menu_id, category_id, descrip, section_id, code FROM OneLook_items WHERE menu_id = '6'");
 if($data){
-$single_item = '<ul class="items">';
+$food_item = '<ul class="items">';
 while($obj = $data->fetch_object())
 {
-$single_item .= <<<EOT
+$food_item .= <<<EOT
 	<li class="item">
 	<form method="post" action="albacio_update.php">
 	<div class="item-content"><h3>{$obj->item_name}</h3>
@@ -115,16 +115,20 @@ $single_item .= <<<EOT
 	</fieldset>
 	<input type="hidden" name="code" value="{$obj->code}" />
 	<input type="hidden" name="type" value="add" />
-	<input type="hidden" name="return_url" value="{$current_url}" />
-	<div align="center"><button type="submit" class="add_to_cart">Add</button></div>
+	<input type="hidden" name="return_url" value="{$menupage}" />
+	<div align="center"><button type="submit" >Add</button></div>
 	</div></div>
 	</form>
 	</li>
 EOT;
 }
-$single_item .= '</ul>';
-echo $single_item;
+$food_item .= '</ul>';
+echo $food_item;
 }
 ?>
 </body>
 </html>
+<?php
+include 'footer.php';
+
+?>
