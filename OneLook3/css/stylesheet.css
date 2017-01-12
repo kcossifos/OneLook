@@ -900,6 +900,48 @@ button.accordion.active:after {
 	width: 500px;
 }
 
+/* Profile Page  */
+	div#usrprofile.container {
+			margin-top: 200px;
+			margin-left: 100px;
+			width: 1100px;
+	}
+
+	#line {
+		width: 112%;
+		margin-left: -20px;
+		background-color: #474747;
+	}
+	.payment-container {
+		margin-top: 20px;
+	}
+
+	.payment-container > h5 {
+		margin-left: 50px;
+		margin-bottom: 30px;
+	}
+
+	.payment-container > p {
+		font-size: .6rem;
+		margin-top: 5px;
+		margin-left: 60px;
+	}
+
+	#pay {
+		margin-top: 5px;
+		margin-left: 130px;
+		border-radius: 5px;
+		color: #FFFFFF;
+		width: 100px;
+		font-size: 1.1rem;
+		color: #ffffff;
+		text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+		background-color: #3B0707;
+		text-align: center;
+		height: 30px;
+	}
+
+
 @media (min-width: 1100px) and (max-width: 1350px) {
 	div>a>img {
 		margin-left: 60px;
@@ -1703,6 +1745,53 @@ button.accordion.active:after {
 		width: 500px;
 	}
 
+	/* Profile Page  */
+		div#usrprofile.container {
+				margin-top: 200px;
+				margin-left: 100px;
+				width: 800px;
+		}
+
+		div.span12.well {
+			width: 850px;
+			margin-left: -10px;
+		}
+
+		#line {
+			width: 112%;
+			margin-left: -20px;
+			background-color: #474747;
+		}
+		.payment-container {
+			margin-top: 20px;
+		}
+
+		.payment-container > h5 {
+			margin-left: 50px;
+			margin-bottom: 30px;
+		}
+
+		.payment-container > p {
+			font-size: .6rem;
+			margin-top: 5px;
+			margin-left: 60px;
+			margin-bottom:40px;
+		}
+
+		#pay {
+			margin-top: 5px;
+			margin-left: 130px;
+			border-radius: 5px;
+			color: #FFFFFF;
+			width: 100px;
+			font-size: 1.1rem;
+			color: #ffffff;
+			text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+			background-color: #3B0707;
+			text-align: center;
+			height: 30px;
+		}
+
 }
 @media only screen and (max-width: 800px) {
 	div>a>img {
@@ -2460,6 +2549,46 @@ button.accordion.active:after {
 		margin-left: 50px;
 	}
 
+	/* Profile Page  */
+		div#usrprofile.container {
+				margin-top: 200px;
+				margin-left: 100px;
+				width: 600px;
+		}
+
+		#line {
+			width: 112%;
+			margin-left: -20px;
+			background-color: #474747;
+		}
+		.payment-container {
+			margin-top: 20px;
+		}
+
+		.payment-container > h5 {
+			margin-left: 50px;
+			margin-bottom: 30px;
+		}
+
+		.payment-container > p {
+			font-size: .6rem;
+			margin-top: 5px;
+			margin-left: 60px;
+		}
+
+		#pay {
+			margin-top: 5px;
+			margin-left: 130px;
+			border-radius: 5px;
+			color: #FFFFFF;
+			width: 100px;
+			font-size: 1.1rem;
+			color: #ffffff;
+			text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+			background-color: #3B0707;
+			text-align: center;
+			height: 30px;
+		}
 }
 @media only screen and (max-width: 600px) {
 	div>a>img {
@@ -3322,6 +3451,49 @@ button.accordion.active:after {
 		width: 400px;
 	}
 
+	/* Profile Page  */
+		div#usrprofile.container {
+				margin-top: 200px;
+				margin-left: 100px;
+				width: 400px;
+		}
+		div.span12.well {
+			width: 400px;
+		}
+
+		#line {
+			width: 112%;
+			margin-left: -20px;
+			background-color: #474747;
+		}
+		.payment-container {
+			margin-top: 20px;
+		}
+
+		.payment-container > h5 {
+			margin-left: 50px;
+			margin-bottom: 60px;
+		}
+
+		.payment-container > p {
+			font-size: .6rem;
+			margin-top: 5px;
+			margin-left: 60px;
+		}
+
+		#pay {
+			margin-top: 5px;
+			margin-left: 130px;
+			border-radius: 5px;
+			color: #FFFFFF;
+			width: 100px;
+			font-size: 1.1rem;
+			color: #ffffff;
+			text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+			background-color: #3B0707;
+			text-align: center;
+			height: 30px;
+		}
 
 }
 @media only screen and (max-width: 450px) {
@@ -4046,12 +4218,57 @@ button.accordion.active:after {
 
 
 	/*     Profile Page     */
-#userinfo > li.dropdown {
-	position: absolute;
-	top: 10%;
-	left: -350px;
-	}
+	#userinfo > li.dropdown {
+		position: absolute;
+		top: 10%;
+		left: -350px;
+		}
 
+		div#usrprofile.container {
+				margin-top: 100px;
+				margin-left: 50px;
+				width: 300px;
+		}
+		div.span12.well {
+			width: 350px;
+			margin-left: -30px;
+		}
+
+		#line {
+			width: 112%;
+			margin-left: -20px;
+			background-color: #474747;
+		}
+		.payment-container {
+			margin-top: 20px;
+			margin-left: -30px;
+		}
+
+		.payment-container > h5 {
+			margin-left: 50px;
+			margin-bottom: 60px;
+			margin-top: 30px;
+		}
+
+		.payment-container > p {
+			font-size: .6rem;
+			margin-top: 5px;
+			margin-left: 60px;
+		}
+
+		#pay {
+			margin-top: 5px;
+			margin-left: 130px;
+			border-radius: 5px;
+			color: #FFFFFF;
+			width: 100px;
+			font-size: 1.1rem;
+			color: #ffffff;
+			text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+			background-color: #3B0707;
+			text-align: center;
+			height: 30px;
+		}
 	/* Account Settings */
 	#infopage {
 		margin-bottom: 95px;
@@ -4065,6 +4282,7 @@ button.accordion.active:after {
 		top: 80%;
 		left: 5%;
 	}
+
 
 }
 @media (min-width: 330px) and (max-width: 375px) {
@@ -5006,6 +5224,56 @@ button.accordion.active:after {
 		left: -400px;
 		}
 
+		div#usrprofile.container {
+				margin-top: 100px;
+				margin-left: 20px;
+				width: 280px;
+		}
+		div.span12.well {
+			width: 320px;
+			margin-left: -20px;
+		}
+
+		#line {
+			width: 112%;
+			margin-left: -20px;
+			background-color: #474747;
+		}
+		.payment-container {
+			margin-top: 20px;
+			margin-left: -10px;
+
+		}
+
+		.payment-container > h5 {
+			margin-left: 20px;
+			margin-bottom: 40px;
+			margin-top: 10px;
+		}
+		.payment-container input {
+			width: 150px;
+		}
+
+		.payment-container > p {
+			font-size: .6rem;
+			margin-top: 5px;
+			margin-left: 20px;
+		}
+
+		#pay {
+			margin-top: 5px;
+			margin-left: 80px;
+			border-radius: 5px;
+			color: #FFFFFF;
+			width: 100px;
+			font-size: 1.1rem;
+			color: #ffffff;
+			text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+			background-color: #3B0707;
+			text-align: center;
+			height: 30px;
+		}
+
 	/* Account Settings */
 	#infopage {
 		margin-bottom: 115px;
@@ -5711,6 +5979,72 @@ button.accordion.active:after {
 		left: -500px;
 		}
 
+		div#usrprofile.container {
+				margin-top: 50px;
+				margin-left: 20px;
+				width: 250px;
+		}
+		#usrprofile > h3 {
+			font-size: 1.3rem;
+		}
+		div.span12.well {
+			width: 280px;
+			margin-left: -20px;
+		}
+
+		#line {
+			width: 112%;
+			margin-left: -20px;
+			background-color: #474747;
+		}
+		.payment-container {
+			margin-top: 20px;
+			margin-left: -20px;
+	}
+
+		.payment-container > h5 {
+			margin-left: 10px;
+			margin-bottom: 30px;
+			margin-top: 30px;
+		}
+
+		.payment-container input {
+			width: 150px;
+		}
+
+		.payment-container > p {
+			font-size: .6rem;
+			margin-top: 5px;
+			margin-left: 20px;
+		}
+
+		#pay {
+			margin-top: 5px;
+			margin-left: 80px;
+			border-radius: 5px;
+			color: #FFFFFF;
+			width: 100px;
+			font-size: 1.1rem;
+			color: #ffffff;
+			text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+			background-color: #3B0707;
+			text-align: center;
+			height: 30px;
+		}
+
+	/* Account Settings */
+	#infopage {
+		margin-bottom: 115px;
+		margin-top: 100px;
+		margin-left: -55px;
+		width: 100px;
+	}
+
+	#infopage > .span6 > a {
+		position: absolute;
+		top: 85%;
+		left: 5%;
+	}
 	/* Account Settings */
 	#infopage {
 		margin-bottom: 95px;

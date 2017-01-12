@@ -83,7 +83,7 @@ if($_POST) {
 	}
 }
 
-include 'header.php';
+include 'headersearch.php';
 
 
 echo "

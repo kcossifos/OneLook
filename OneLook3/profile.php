@@ -11,7 +11,7 @@ if(!isset($_GET["u"]) || !($u = $db->getRow("SELECT * FROM `".OneLook_PREFIX."us
 $page->title = "Profile of ". $html_options->html($u->username);
 
 
-include 'header.php';
+include 'headersearch.php';
 
 
 if(isset($page->error))
@@ -54,7 +54,7 @@ if($privacy->email == 1 || $the_user->adminUser())
 
 
 
-echo "<div style='margin-top: 212px; margin-bottom: 212px;' class='container'>
+echo "<div id='usrprofile' class='container'>
 	<h3 class='pull-left'>Profile of ".$html_options->html($u->username)."</h3>";
 
 if($show_actions != '')
@@ -72,9 +72,9 @@ echo "<div class='btn-group pull-right'>
 
 echo "
   	<div class='clearfix'></div>
-	<hr>
+	<hr id='line'>
 	<div class='row'>
-		<div  class='span12 well' style='margin:10px;'>
+		<div  class='span12 well'>
 			<b>Rank:</b> ".$html_options->html($the_user_groups->name)."<br/>
 			<b>Last seen:</b> ".$html_options->tsince($u->lastactive)."<br/>
 			$extra_details
@@ -82,20 +82,20 @@ echo "
 
 	</div>
 	<div class='row payment-container'>
-		<h2>Pay For Membership Here</h2>
+		<h5>Sign Up here for a User Membership!</h5>
 
 		<form action='checkout.php' method='post' autocomplete='off'>
 			<label for='item'>
-			Membership:
-				<input type='text' name='product'>
+			Membership
+				<input style='margin-left: 14px;' type='text' name='product'>
 			</label>
 			<label for='amount'>
-			Price:
-				<input type='text' name='price'>
+			Price
+				<input style='margin-left: 60px;' type='text' name='price'>
 			</label>
-			<input type='submit' value='Pay'>
+			<input id='pay' type='submit' value='Pay'>
 		</form>
-		<p>You'll be taken to paypal to complete your payment</p>
+		<p>*You'll be taken to paypal to complete your payment</p>
 
 
 	</div>
