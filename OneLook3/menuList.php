@@ -26,6 +26,10 @@ include 'headersearch.php';
   $restaurant_listing = restaurant_list($imploded, $search_query_location);
   $restaurant_array = json_decode($restaurant_listing, true);
 
+  if (($key = array_search('Spoleto- My Italian Kitchen (Winter Park)', $restaurant_array)) !== false) {
+    unset($restaurant_array[$key]);
+  }
+
   echo '
 
   <section>
