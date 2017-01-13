@@ -58,18 +58,17 @@ include 'headersearch.php';
 
 
  	<?php
-	if(isset($_SESSION["armandos_items"])) //check session var
+	if(isset($_SESSION["armandos_items"]))
     {
-		$total = 0; //set initial total value
-		 //var for zebra stripe table
+		$total = 0;
+
 		foreach ($_SESSION["armandos_items"] as $menu_items)
         {
-			//set variables to use in content below
 			$menu_name = $menu_items["item_name"];
 			$menu_qty = $menu_items["item_qty"];
 			$menu_price = $menu_items["item_price"];
 			$code = $menu_items["code"];
-			$subtotal = ($menu_price * $menu_qty); //calculate Price x Qty
+			$subtotal = ($menu_price * $menu_qty);
 
 		    echo '<tr>';
 			echo '<td><input type="text" size="2" maxlength="2" name="item_qty['.$code.']" value="'.$menu_qty.'" /></td>';
@@ -78,7 +77,7 @@ include 'headersearch.php';
 			echo '<td>'.$currency.$subtotal.'</td>';
 			echo '<td><input type="checkbox" name="remove_code[]" value="'.$code.'" /></td>';
             echo '</tr>';
-			$total = ($total + $subtotal); //add subtotal to total var
+			$total = ($total + $subtotal); 
         }
 
 		$grand_total = $total;

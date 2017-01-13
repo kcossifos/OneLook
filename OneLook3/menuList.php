@@ -153,9 +153,6 @@ include 'headersearch.php';
               <hr class="length">';
         }
         if($restaurant_array['results'][$i]['name'] == "Giovanni's Italian Restaurant & Pizzeria"){
-          // echo '
-          //     <section> <a href="menuPage.php"><i class="fa fa-cutlery" aria-hidden="true"></i>  View Menu</a>';
-
           echo '  <form action="menuPage.php" method="post">
                     <input type="hidden" name="foodType" value="italian" />
                     <input type="submit" value="Menu" class="button" />
@@ -433,13 +430,13 @@ include 'headersearch.php';
             }
       }else {
     for($i = 0; $i < 10; $i++){
-      if($restaurant_array['results'][$i]['name'] === 'Spoleto- My Italian Kitchen (Winter Park)'){
-        echo '';
-      }
       echo '<section id="view">
           <article id="rest">
               <img src="images/resticon.png"/>
           <aside>  <h3>' . $restaurant_array['results'][$i]['name'] . '</h3><br>';
+        if($restaurant_array['results'][$i]['name'] === 'Spoleto- My Italian Kitchen (Winter Park)'){
+          echo '';
+        }
         if($restaurant_array['results'][$i]['formatted_address']){
           echo '<h5>Address:</h5><p>' . $restaurant_array['results'][$i]['formatted_address'] . '</p>';
         }else {
@@ -473,9 +470,6 @@ include 'headersearch.php';
               <hr class="length">';
         }
         if($restaurant_array['results'][$i]['name'] === "Giovanni's Italian Restaurant & Pizzeria"){
-          // echo '
-          //     <section> <a href="menuPage.php"><i class="fa fa-cutlery" aria-hidden="true"></i>  View Menu</a>';
-
           echo '  <form action="giovanni.php" method="post">
                     <input type="hidden" name="foodType" value="Giovanni" />
                     <i class="fa fa-cutlery" aria-hidden="true"></i>
@@ -591,9 +585,5 @@ include 'headersearch.php';
 
 
   include 'footer.php';
-  // var_dump($restaurant_array);
-  // var_dump($rating);
-  // var_dump($search_query);
-  // var_dump($search_query_location);
-  // var_dump($search_query_location);
+
  ?>
