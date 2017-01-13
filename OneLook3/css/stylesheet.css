@@ -941,7 +941,6 @@ button.accordion.active:after {
 		height: 30px;
 	}
 
-
 @media (min-width: 1100px) and (max-width: 1350px) {
 	div>a>img {
 		margin-left: 60px;
@@ -1791,7 +1790,6 @@ button.accordion.active:after {
 			text-align: center;
 			height: 30px;
 		}
-
 }
 @media only screen and (max-width: 800px) {
 	div>a>img {
@@ -2542,6 +2540,7 @@ button.accordion.active:after {
 		margin-bottom:50px;
 		margin-left: -60px;
 	}
+<<<<<<< HEAD
 
 	/* Account Settings */
 	#infopage {
@@ -2589,6 +2588,8 @@ button.accordion.active:after {
 			text-align: center;
 			height: 30px;
 		}
+=======
+>>>>>>> cartAdding
 }
 @media only screen and (max-width: 600px) {
 	div>a>img {
@@ -4215,6 +4216,7 @@ button.accordion.active:after {
 		margin-left: -60px;
 		width: 350px;
 	}
+<<<<<<< HEAD
 
 
 	/*     Profile Page     */
@@ -4284,6 +4286,8 @@ button.accordion.active:after {
 	}
 
 
+=======
+>>>>>>> cartAdding
 }
 @media (min-width: 330px) and (max-width: 375px) {
 	div>a>img {
@@ -5217,6 +5221,7 @@ button.accordion.active:after {
 		width: 350px;
 	}
 
+
 	/*     Profile Page     */
 	#userinfo > li.dropdown {
 		position: absolute;
@@ -5288,7 +5293,6 @@ button.accordion.active:after {
 		left: 5%;
 	}
 
-}
 @media only screen and (max-width: 320px) {
 
   div>a>img {
@@ -5970,6 +5974,7 @@ button.accordion.active:after {
 		margin-left: -60px;
 		width: 350px;
 	}
+<<<<<<< HEAD
 
 
 	/*     Profile Page     */
@@ -6058,4 +6063,6 @@ button.accordion.active:after {
 		top: 90%;
 		left: 5%;
 	}
+=======
+>>>>>>> cartAdding
 }
