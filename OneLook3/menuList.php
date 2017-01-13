@@ -519,7 +519,7 @@ include 'headersearch.php';
                       <i class="fa fa-cutlery" aria-hidden="true"></i>
                       <input id="food" type="submit" value="View Menu" class="button" />
                   </form>';
-        }else if($restaurant_array['results'][$i]['name'] === "Rocco's Italian Grille"){
+        }else if($restaurant_array['results'][$i]['name'] === "Rocco's Italian Grille & Bar"){
           echo '   <form action="roccos.php" method="post">
                     <input type="hidden" name="foodType" value="Roccos" />
                     <i class="fa fa-cutlery" aria-hidden="true"></i>
@@ -531,7 +531,7 @@ include 'headersearch.php';
                       <i class="fa fa-cutlery" aria-hidden="true"></i>
                       <input id="food" type="submit" value="View Menu" class="button" />
                   </form>';
-        }else if($restaurant_array['results'][$i]['name'] === "Brio Tuscan Grille"){
+        }else if($restaurant_array['results'][$i]['name'] === "BRIO Tuscan Grille"){
           echo '   <form action="brio.php" method="post">
                     <input type="hidden" name="foodType" value="Brio" />
                     <i class="fa fa-cutlery" aria-hidden="true"></i>
