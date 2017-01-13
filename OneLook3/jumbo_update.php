@@ -4,7 +4,7 @@ include_once("config.php");
 
 if(isset($_POST["type"]) && $_POST["type"]=='add' && $_POST["item_qty"]>0)
 {
-	foreach($_POST as $key => $value){ //add all post vars to new_item array
+	foreach($_POST as $key => $value){
 		$new_menuitem[$key] = filter_var($value, FILTER_SANITIZE_STRING);
     }
 
@@ -50,7 +50,7 @@ if(isset($_POST["item_qty"]) || isset($_POST["remove_code"]))
 	}
 }
 
-$return_url = (isset($_POST["return_url"]))?urldecode($_POST["return_url"]):''; 
+$return_url = (isset($_POST["return_url"]))?urldecode($_POST["return_url"]):'';
 header('Location:'.$return_url);
 
 ?>

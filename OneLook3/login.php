@@ -61,8 +61,8 @@ if($_POST && isset($_SESSION['token']) && ($_SESSION['token'] == $_POST['token']
         else {
             if($_POST['r'] == 1){
                 $path_info = parse_url($set_class->url);
-                setcookie("user", $name, time() + 3600 * 24 * 30, $path_info['path']); // set
-                setcookie("pass", sha1($password), time() + 3600 * 24 * 30, $path_info['path']); // set
+                setcookie("user", $name, time() + 3600 * 24 * 30, $path_info['path']);
+                setcookie("pass", sha1($password), time() + 3600 * 24 * 30, $path_info['path']);
             }
             $_SESSION['user'] = $usr->userid;
             header("Location: $set_class->url");
@@ -76,7 +76,7 @@ if($_POST && isset($_SESSION['token']) && ($_SESSION['token'] == $_POST['token']
 include 'header.php';
 
 
-$_SESSION['token'] = sha1(rand()); // random token
+$_SESSION['token'] = sha1(rand());
 
   echo "<div class='container'>
   <div class='row'>

@@ -31,8 +31,5 @@ require_once("settings/db.php");
 
 
 include 'footer.php';
-  // var_dump($total_num_rows);
 
-  // var_dump($search_query);
-  // var_dump($search_query_location);
  ?>

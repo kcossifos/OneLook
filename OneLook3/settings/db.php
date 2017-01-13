@@ -1,10 +1,10 @@
 <?php
 
 
-$set_class->db_host = 'localhost'; // database host
-$set_class->db_user = 'root'; // database user
-$set_class->db_pass = 'root'; // database password
-$set_class->db_name = 'OneLook'; // database name
+$set_class->db_host = 'localhost'; 
+$set_class->db_user = 'root';
+$set_class->db_pass = 'root';
+$set_class->db_name = 'OneLook';
 
 define('OneLook_PREFIX', 'OneLook_');
 ?>

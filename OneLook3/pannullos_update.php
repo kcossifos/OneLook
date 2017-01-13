@@ -27,15 +27,15 @@ if(isset($_POST["type"]) && $_POST["type"]=='add' && $_POST["item_qty"]>0)
                 unset($_SESSION["pannullos_items"][$new_menuitem['code']]);
             }
         }
-        $_SESSION["pannullos_items"][$new_menuitem['code']] = $new_menuitem; 
+        $_SESSION["pannullos_items"][$new_menuitem['code']] = $new_menuitem;
     }
 }
 
 
-//update or remove items
+
 if(isset($_POST["item_qty"]) || isset($_POST["remove_code"]))
 {
-	//update item quantity in item session
+
 	if(isset($_POST["item_qty"]) && is_array($_POST["item_qty"])){
 		foreach($_POST["item_qty"] as $key => $value){
 			if(is_numeric($value)){
@@ -43,7 +43,7 @@ if(isset($_POST["item_qty"]) || isset($_POST["remove_code"]))
 			}
 		}
 	}
-	//remove an item from item session
+
 	if(isset($_POST["remove_code"]) && is_array($_POST["remove_code"])){
 		foreach($_POST["remove_code"] as $key){
 			unset($_SESSION["pannullos_items"][$key]);
@@ -51,8 +51,8 @@ if(isset($_POST["item_qty"]) || isset($_POST["remove_code"]))
 	}
 }
 
-//back to return url
-$return_url = (isset($_POST["return_url"]))?urldecode($_POST["return_url"]):''; //return url
+
+$return_url = (isset($_POST["return_url"]))?urldecode($_POST["return_url"]):''; 
 header('Location:'.$return_url);
 
 ?>
