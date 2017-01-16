@@ -197,7 +197,8 @@ include 'headersearch.php';
             </section>';
           }
     }
-  }else if($price_level) {
+  }
+}else if($price_level) {
     for($i = 0; $i < 10; $i++){
       if($restaurant_array['results'][$i]['price_level'] == $price_level){
       echo '<section id="view">
