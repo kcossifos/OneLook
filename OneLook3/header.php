@@ -33,8 +33,7 @@ if(!$the_user->islg())
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </a>
-                    <a class="brand" href="<?php echo $set_class->url; ?>"><?php echo "<img src='images/ArialLogo.png'/>"; ?></a>
-                    <a class="brand" href="<?php echo $set_class->url; ?>"><?php echo "<img src='../images/ArialLogo.png'/>"; ?></a>
+                    <a class="brand" href="/"><?php echo "<img src='images/ArialLogo.png'/>"; ?></a>
                     <div class="nav-collapse collapse">
                         <ul  id='userinfo' class="nav pull-right">
 

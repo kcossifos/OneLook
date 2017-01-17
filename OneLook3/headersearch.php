@@ -35,8 +35,7 @@ if(!$the_user->islg())
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </a>
-                    <a class="brand" href="<?php echo $set_class->url; ?>"><?php echo "<img src='images/ArialLogo.png'/>"; ?></a>
-                    <a class="brand" href="<?php echo $set_class->url; ?>"><?php echo "<img src='../images/ArialLogo.png'/>"; ?></a>
+                    <a class="brand" href="/"><?php echo "<img src='images/ArialLogo.png'/>"; ?></a>
                     <section>
                           <form action='menuList.php' method='POST'>
                             <select id='locationtwo' name='locationParam'>

@@ -65,7 +65,8 @@ if($_POST && isset($_SESSION['token']) && ($_SESSION['token'] == $_POST['token']
                 setcookie("pass", sha1($password), time() + 3600 * 24 * 30, $path_info['path']); // set
             }
             $_SESSION['user'] = $usr->userid;
-            header("Location: $set_class->url");
+          header("Location: /");
+
             exit;
         }
     }
