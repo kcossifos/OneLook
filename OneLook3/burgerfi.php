@@ -60,7 +60,7 @@ if(isset($_SESSION["burgerfi_items"]) && count($_SESSION["burgerfi_items"])>0)
 	echo '<tbody>';
 
 	$total =0;
-	
+
 	foreach ($_SESSION["burgerfi_items"] as $menu_items)
 	{
 		$menu_name = $menu_items["item_name"];
@@ -88,15 +88,12 @@ if(isset($_SESSION["burgerfi_items"]) && count($_SESSION["burgerfi_items"])>0)
 
 }
 ?>
-<!-- View Cart Box End -->
 
 
-<!-- items List Start -->
 <?php
 $data = $mysqli->query("SELECT item_id, item_name, item_price, menu_id, category_id, descrip, section_id, code FROM OneLook_items_continued_2 WHERE menu_id = '15'");
 if($data){
 $food_item = '<ul class="items">';
-//fetch results set as object and output HTML
 while($obj = $data->fetch_object())
 {
 $food_item .= <<<EOT

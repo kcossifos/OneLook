@@ -30,7 +30,7 @@ $itemList->setItems([$item]);
 
 $details = new Details();
 $details->setShipping($shipping)
-    // ->setTax()
+
     ->setSubtotal($price);
 
 $amount = new Amount();
@@ -54,7 +54,6 @@ $payment->setIntent("sale")
     ->setRedirectUrls($redirectUrls)
     ->setTransactions([$transaction]);
 
-// $request = clone $payment;
 
 try {
     $payment->create($paypal);
@@ -65,5 +64,3 @@ try {
 $approvalUrl = $payment->getApprovalLink();
 
 header("Location: {$approvalUrl}");
-
-// return $payment;

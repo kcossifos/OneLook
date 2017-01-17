@@ -741,4 +741,11 @@ include 'headersearch.php';
 
   include 'footer.php';
 
+<<<<<<< HEAD
+=======
+  // for($i = 0; $i < 10; $i++){
+  //   var_dump($restaurant_array['results'][$i]['name']);
+  // }
+
+>>>>>>> origin/master
  ?>

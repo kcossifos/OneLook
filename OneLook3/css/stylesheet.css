@@ -1,5 +1,4 @@
 
-/*                      Home Page                  */
 
 
 #main {
@@ -192,7 +191,6 @@ label.error {
 }
 
 
-/*            Search Page       */
 
 #view {
 	background-color: #FFFFFF;
@@ -286,7 +284,6 @@ aside>h3 {
 	margin-top: 20px;
 }
 
-/*  rating  */
 
 #rate {
 	position: absolute;
@@ -335,7 +332,6 @@ hr {
 	color: #FFED85;
 }
 
-/* price */
 
 #price {
 	position: absolute;
@@ -445,7 +441,6 @@ hr {
 	font-weight: 600;
 	position: absolute;
 	margin-top: 54px;
-	/*margin-left: -1px;*/
 	background-color: #FFFFFF;
 	border: none;
 }
@@ -534,7 +529,6 @@ aside>h2 {
 	font-size: 2.5rem;
 }
 
-/*  rating  */
 
 #rest>img {
 	width: 180px;
@@ -578,7 +572,6 @@ form>.fa-cutlery {
 
 
 
-/*                Menu List Page             */
 .items {
 	padding: 0;
 	margin-top: 100px;
@@ -834,8 +827,6 @@ button.accordion.active:after {
 		margin-left: -135px;
 }
 
-/*            Cart Page    */
-
 
 .tip {
 	margin-top: -170px;
@@ -868,10 +859,6 @@ button.accordion.active:after {
 }
 
 
-
-/*    Sign Up Page     */
-
-
 #reg {
 	margin-top: 100px;
 	margin-bottom:50px;
@@ -879,7 +866,6 @@ button.accordion.active:after {
 }
 
 
-/*         User List     */
 #userlist {
 	margin-top: 150px;
 	margin-bottom: 150px;
@@ -892,7 +878,6 @@ button.accordion.active:after {
 }
 
 
-/* Account Settings */
 #infopage {
 	margin-bottom: 110px;
 	margin-top: 100px;
@@ -900,7 +885,6 @@ button.accordion.active:after {
 	width: 500px;
 }
 
-/* Profile Page  */
 	div#usrprofile.container {
 			margin-top: 200px;
 			margin-left: 100px;
@@ -1141,7 +1125,6 @@ button.accordion.active:after {
 	.span11>p {
 		margin-right: -11px;
 	}
-	/*                       Search Page                            */
 	#locationtwo {
 		position: absolute;
 		top: 14%;
@@ -1231,7 +1214,6 @@ button.accordion.active:after {
 		width: 15%;
 		margin-left: -193px;
 	}
-	/*  rating  */
 	#rate {
 		position: absolute;
 		top: 47%;
@@ -1275,7 +1257,6 @@ button.accordion.active:after {
 	.rating>input:checked+label:hover, .rating>input:checked~label:hover, .rating>label:hover~input:checked~label, .rating>input:checked~label:hover~label {
 		color: #FFED85;
 	}
-	/* price */
 	#price {
 		position: absolute;
 		top: 67%;
@@ -1394,7 +1375,6 @@ button.accordion.active:after {
 		margin-left: 230px;
 	}
 
-	/*                Menu List Page             */
 	.items {
 		padding: 0;
 		margin-top: 100px;
@@ -1677,7 +1657,6 @@ button.accordion.active:after {
 	}
 
 
-		/*            Cart Page    */
 
 	.tip {
 		margin-top: -170px;
@@ -1714,7 +1693,6 @@ button.accordion.active:after {
 		margin-top: 10px;
 	}
 
-	/* Sign Up Page         */
 	.well {
 		min-height: 20px;
 		padding: 19px;
@@ -1736,7 +1714,6 @@ button.accordion.active:after {
 		margin-left: -60px;
 	}
 
-	/* Account Settings */
 	#infopage {
 		margin-bottom: 150px;
 		margin-top: 200px;
@@ -1744,7 +1721,6 @@ button.accordion.active:after {
 		width: 500px;
 	}
 
-	/* Profile Page  */
 		div#usrprofile.container {
 				margin-top: 200px;
 				margin-left: 100px;
@@ -1940,7 +1916,6 @@ button.accordion.active:after {
 		margin-top: 50px;
 		top: 1200px;
 	}
-	/*            Search Page       */
 	#locationtwo {
 		position: absolute;
 		top: 20%;
@@ -2023,7 +1998,6 @@ button.accordion.active:after {
 		margin-left: -222px;
 		font-size: .75rem;
 	}
-	/*  rating  */
 	#rate {
 		position: absolute;
 		top: 50%;
@@ -2077,7 +2051,6 @@ button.accordion.active:after {
 	.rating>input:checked+label:hover, .rating>input:checked~label:hover, .rating>label:hover~input:checked~label, .rating>input:checked~label:hover~label {
 		color: #FFED85;
 	}
-	/* price */
 	#price {
 		position: absolute;
 		top: 70%;
@@ -2198,7 +2171,6 @@ button.accordion.active:after {
 		margin-top: 22px;
 		margin-left: 170px;
 	}
-	/*                Menu List Page             */
 	.items {
 		padding: 0;
 		margin-top: 100px;
@@ -2481,7 +2453,6 @@ button.accordion.active:after {
 			-webkit-margin-start: -90px;
 	}
 
-	/*            Cart Page    */
 
 	.tip {
 		margin-top: -170px;
@@ -2519,7 +2490,6 @@ button.accordion.active:after {
 	}
 
 
-	/*       Sign Up Page    */
 
 	.well {
 		min-height: 20px;
@@ -2541,15 +2511,12 @@ button.accordion.active:after {
 		margin-bottom:50px;
 		margin-left: -60px;
 	}
-<<<<<<< HEAD
 
-	/* Account Settings */
 	#infopage {
 		margin-bottom: 80px;
 		margin-left: 50px;
 	}
 
-	/* Profile Page  */
 		div#usrprofile.container {
 				margin-top: 200px;
 				margin-left: 100px;
@@ -2589,7 +2556,10 @@ button.accordion.active:after {
 			text-align: center;
 			height: 30px;
 		}
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/master
 }
 @media only screen and (max-width: 600px) {
 	div>a>img {
@@ -2791,7 +2761,6 @@ button.accordion.active:after {
 		top: 2600px;
 	}
 
-  /*            Search Page       */
 
   #menutwo, #locationtwo {
     display:none;
@@ -2850,7 +2819,6 @@ button.accordion.active:after {
     margin-left: -195px;
   }
 
-  /*  rating  */
 
   #rate {
     position: absolute;
@@ -2900,7 +2868,6 @@ button.accordion.active:after {
   	color: #FFED85;
   }
 
-  /* price */
 
   #price {
     position: absolute;
@@ -3016,7 +2983,6 @@ button.accordion.active:after {
   	font-weight: 600;
   	position: absolute;
   	margin-top: 54px;
-  	/*margin-left: -1px;*/
   	background-color: #FFFFFF;
   	border: none;
   }
@@ -3136,7 +3102,6 @@ button.accordion.active:after {
     margin-top: 35%;
   }
 
-	/*                Menu List Page             */
 	.items {
 		padding: 0;
 		margin-top: 100px;
@@ -3444,7 +3409,6 @@ button.accordion.active:after {
 		font-size: 1rem;
 	}
 
-	/* Account Settings */
 	#infopage {
 		margin-bottom: 180px;
 		margin-top: 200px;
@@ -3452,7 +3416,6 @@ button.accordion.active:after {
 		width: 400px;
 	}
 
-	/* Profile Page  */
 		div#usrprofile.container {
 				margin-top: 200px;
 				margin-left: 100px;
@@ -3693,7 +3656,6 @@ button.accordion.active:after {
 		margin-top: 30px;
 		top: 2140px;
 	}
-	/*            Search Page       */
 	#log {
 		margin-left: 5px;
 	}
@@ -3836,7 +3798,6 @@ button.accordion.active:after {
 		padding-top: 3%;
 		font-size: 2.5rem;
 	}
-	/*  rating  */
 	#rest>img {
 		width: 0px;
 		height: 100px;
@@ -3876,7 +3837,6 @@ button.accordion.active:after {
 		margin-left: 120px;
 	}
 
-	/*                Menu List Page             */
 	.items {
 		padding: 0;
 		margin-top: 50px;
@@ -4192,7 +4152,6 @@ button.accordion.active:after {
 		width: 100px;
 	}
 
-	/*       Sign Up Page      */
 
 	.well {
 		min-height: 20px;
@@ -4216,10 +4175,8 @@ button.accordion.active:after {
 		margin-left: -60px;
 		width: 350px;
 	}
-<<<<<<< HEAD
 
 
-	/*     Profile Page     */
 	#userinfo > li.dropdown {
 		position: absolute;
 		top: 10%;
@@ -4271,7 +4228,6 @@ button.accordion.active:after {
 			text-align: center;
 			height: 30px;
 		}
-	/* Account Settings */
 	#infopage {
 		margin-bottom: 95px;
 		margin-top: 150px;
@@ -4284,6 +4240,11 @@ button.accordion.active:after {
 		top: 80%;
 		left: 5%;
 	}
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> origin/master
 }
 @media (min-width: 330px) and (max-width: 375px) {
 	div>a>img {
@@ -4555,7 +4516,6 @@ button.accordion.active:after {
 		padding-top: 3%;
 		font-size: 2.5rem;
 	}
-	/*  rating  */
 	#rest>img {
 		width: 0px;
 		height: 80px;
@@ -4593,7 +4553,6 @@ button.accordion.active:after {
 		margin-top: 22px;
 		margin-left: 95px;
 	}
-	/*                Menu List Page             */
 	.items {
 		padding: 0;
 		margin-top: 100px;
@@ -4876,7 +4835,6 @@ button.accordion.active:after {
 			margin-left: -195px;
 	}
 
-	/*                Menu List Page             */
 	.items {
 		padding: 0;
 		margin-top: 50px;
@@ -5193,7 +5151,6 @@ button.accordion.active:after {
 	}
 
 
-	/* Sign Up Page    */
 	.well {
 		min-height: 20px;
 		padding: 19px;
@@ -5218,7 +5175,6 @@ button.accordion.active:after {
 	}
 
 
-	/*     Profile Page     */
 	#userinfo > li.dropdown {
 		position: absolute;
 		top: 10%;
@@ -5275,7 +5231,6 @@ button.accordion.active:after {
 			height: 30px;
 		}
 
-	/* Account Settings */
 	#infopage {
 		margin-bottom: 115px;
 		margin-top: 100px;
@@ -5572,7 +5527,6 @@ button.accordion.active:after {
     padding-top: 3%;
     font-size: 2.5rem;
   }
-  /*  rating  */
   #rest>img {
     width: 0px;
     height: 80px;
@@ -5616,7 +5570,6 @@ button.accordion.active:after {
     margin-top: 35%;
   }
 
-	/*                Menu List Page             */
 	.items {
 		padding: 0;
 		margin-top: 50px;
@@ -5944,7 +5897,6 @@ button.accordion.active:after {
 	}
 
 
-	/*       Sign Up Page      */
 
 	.well {
 		min-height: 20px;
@@ -5968,8 +5920,11 @@ button.accordion.active:after {
 		margin-left: -60px;
 		width: 350px;
 	}
+<<<<<<< HEAD
+=======
 
-	/*     Profile Page     */
+>>>>>>> origin/master
+
 	#userinfo > li.dropdown {
 		position: absolute;
 		top: 10%;
@@ -6028,7 +5983,23 @@ button.accordion.active:after {
 			text-align: center;
 			height: 30px;
 		}
+<<<<<<< HEAD
 	/* Account Settings */
+=======
+
+	#infopage {
+		margin-bottom: 115px;
+		margin-top: 100px;
+		margin-left: -55px;
+		width: 100px;
+	}
+
+	#infopage > .span6 > a {
+		position: absolute;
+		top: 85%;
+		left: 5%;
+	}
+>>>>>>> origin/master
 	#infopage {
 		margin-bottom: 95px;
 		margin-top: 50px;

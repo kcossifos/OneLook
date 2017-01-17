@@ -49,7 +49,7 @@ if(isset($_GET['q']))
 if($total_results = $db->getRow("SELECT COUNT(*) as count FROM `".OneLook_PREFIX."users` ?p", $where)->count) {
 
     if(!isset($page_number))
-      $page_number = (int)$_GET['page'] <= 0 ? 1 : (int)$_GET['page']; // grab the page number
+      $page_number = (int)$_GET['page'] <= 0 ? 1 : (int)$_GET['page']; 
 
     $perpage = 10;
 

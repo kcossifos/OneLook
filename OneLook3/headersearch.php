@@ -66,9 +66,9 @@ foreach ($page->navbar as $keys => $o) {
     } else if($o[0] == 'dropdown') {
 
         echo "<li class='dropdown".
-            // extra classes
+
             ($o['class'] ? " ".$o['class'] : "")."'".
-            // extra style
+
             ($o['style'] ? " style='".$o['style']."'" : "").">
 
             <a href='#' class='dropdown-toggle' data-toggle='dropdown'>".$o['name']." <b class='caret'></b></a>
@@ -112,7 +112,7 @@ echo "
 
 if($the_user->data->banned) {
 
-    // we delete the expired banned
+
     $_unban = $db->getAll("SELECT `userid` FROM `".OneLook_PREFIX."banned` WHERE `until` < ".time());
     if($_unban)
         foreach ($_unban as $_usr) {
