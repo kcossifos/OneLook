@@ -116,6 +116,47 @@ include 'headersearch.php';
   if($rating){
     for($i = 0; $i < 10; $i++){
       if($restaurant_array['results'][$i]['rating'] >= $rating && $restaurant_array['results'][$i]['rating'] <= $rating + 0.9){
+        if($restaurant_array['results'][$i]['name'] === "Spoleto- My Italian Kitchen (Winter Park)"){
+          echo '';
+        }else if($restaurant_array['results'][$i]['name'] === "Rome's Flavours"){
+          echo '';
+        }else if($restaurant_array['results'][$i]['name'] === "Olive Garden"){
+          echo '';
+        }else if($restaurant_array['results'][$i]['name'] === "O'Stromboli Italian Eatery"){
+          echo '';
+        }else if($restaurant_array['results'][$i]['name'] === "Winter Park China Star"){
+          echo '';
+        }else if($restaurant_array['results'][$i]['name'] === "Chung On Chinese Restaurant"){
+          echo '';
+        }else if($restaurant_array['results'][$i]['name'] === "China Master"){
+          echo '';
+        }else if($restaurant_array['results'][$i]['name'] === "Lucky China"){
+          echo '';
+        }else if($restaurant_array['results'][$i]['name'] === "Asia Kitchen"){
+          echo '';
+        }else if($restaurant_array['results'][$i]['name'] === "P.F. Chang's"){
+          echo '';
+        }else if($restaurant_array['results'][$i]['name'] === "New Hong Kong"){
+          echo '';
+        }else if($restaurant_array['results'][$i]['name'] === "He Sheng Chinese Restaurant"){
+          echo '';
+        }else if($restaurant_array['results'][$i]['name'] === "310 Park South"){
+          echo '';
+        }else if($restaurant_array['results'][$i]['name'] === "Briarpatch Restaurant"){
+          echo '';
+        }else if($restaurant_array['results'][$i]['name'] === "Luma on Park"){
+          echo '';
+        }else if($restaurant_array['results'][$i]['name'] === "Hamilton's Kitchen"){
+          echo '';
+        }else if($restaurant_array['results'][$i]['name'] === "Dexter's of Winter Park"){
+          echo '';
+        }else if($restaurant_array['results'][$i]['name'] === "Park Plaza Gardens Restaurant"){
+          echo '';
+        }else if($restaurant_array['results'][$i]['name'] === "Johnny's Diner"){
+          echo '';
+        }else if($restaurant_array['results'][$i]['name'] === "Royal Indian Cuisine"){
+          echo '';
+        }else{
       echo '<section id="view">
           <article id="rest">
               <img src="images/resticon.png"/>
@@ -152,26 +193,12 @@ include 'headersearch.php';
               </section>
               <hr class="length">';
         }
-        if($restaurant_array['results'][$i]['name'] == "Giovanni's Italian Restaurant & Pizzeria"){
-          // echo '
-          //     <section> <a href="menuPage.php"><i class="fa fa-cutlery" aria-hidden="true"></i>  View Menu</a>';
-
-          echo '  <form action="menuPage.php" method="post">
-                    <input type="hidden" name="foodType" value="italian" />
-                    <input type="submit" value="Menu" class="button" />
-                  </form>';
-        }else if($restaurant_array['results'][$i]['name'] == "Cocina 214"){
-          echo '  <form action="menuPage.php" method="post">
-                    <input type="hidden" name="foodType" value="mexican" />
-                    <input type="submit" value="Menu" class="button" />
-                  </form>';
-                }
       echo '</section>
             </section>';
-          }else {
           }
     }
-  }else if($price_level) {
+  }
+}else if($price_level) {
     for($i = 0; $i < 10; $i++){
       if($restaurant_array['results'][$i]['price_level'] == $price_level){
       echo '<section id="view">
@@ -228,6 +255,48 @@ include 'headersearch.php';
     }
   }else if($sorting == 'rating') {
     for($i = 0; $i < 10; $i++){
+      if($restaurant_array['results'][$i]['rating'] >= $rating && $restaurant_array['results'][$i]['rating'] <= $rating + 0.9){
+        if($restaurant_array['results'][$i]['name'] === "Spoleto- My Italian Kitchen (Winter Park)"){
+          echo '';
+        }else if($restaurant_array['results'][$i]['name'] === "Rome's Flavours"){
+          echo '';
+        }else if($restaurant_array['results'][$i]['name'] === "Olive Garden"){
+          echo '';
+        }else if($restaurant_array['results'][$i]['name'] === "O'Stromboli Italian Eatery"){
+          echo '';
+        }else if($restaurant_array['results'][$i]['name'] === "Winter Park China Star"){
+          echo '';
+        }else if($restaurant_array['results'][$i]['name'] === "Chung On Chinese Restaurant"){
+          echo '';
+        }else if($restaurant_array['results'][$i]['name'] === "China Master"){
+          echo '';
+        }else if($restaurant_array['results'][$i]['name'] === "Lucky China"){
+          echo '';
+        }else if($restaurant_array['results'][$i]['name'] === "Asia Kitchen"){
+          echo '';
+        }else if($restaurant_array['results'][$i]['name'] === "P.F. Chang's"){
+          echo '';
+        }else if($restaurant_array['results'][$i]['name'] === "New Hong Kong"){
+          echo '';
+        }else if($restaurant_array['results'][$i]['name'] === "He Sheng Chinese Restaurant"){
+          echo '';
+        }else if($restaurant_array['results'][$i]['name'] === "310 Park South"){
+          echo '';
+        }else if($restaurant_array['results'][$i]['name'] === "Briarpatch Restaurant"){
+          echo '';
+        }else if($restaurant_array['results'][$i]['name'] === "Luma on Park"){
+          echo '';
+        }else if($restaurant_array['results'][$i]['name'] === "Hamilton's Kitchen"){
+          echo '';
+        }else if($restaurant_array['results'][$i]['name'] === "Dexter's of Winter Park"){
+          echo '';
+        }else if($restaurant_array['results'][$i]['name'] === "Park Plaza Gardens Restaurant"){
+          echo '';
+        }else if($restaurant_array['results'][$i]['name'] === "Johnny's Diner"){
+          echo '';
+        }else if($restaurant_array['results'][$i]['name'] === "Royal Indian Cuisine"){
+          echo '';
+        }else{
       if($rating_array[$i]['name'] == ''){
         echo '';
       }
@@ -282,9 +351,52 @@ include 'headersearch.php';
       echo '</section>
             </section>';
           }
+        }
+      }
     }else if($sorting == 'low') {
       for($i = 0; $i < 10; $i++){
-        echo '<section id="view">
+        if($restaurant_array['results'][$i]['name'] === "Spoleto- My Italian Kitchen (Winter Park)"){
+          echo '';
+        }else if($restaurant_array['results'][$i]['name'] === "Rome's Flavours"){
+          echo '';
+        }else if($restaurant_array['results'][$i]['name'] === "Olive Garden"){
+          echo '';
+        }else if($restaurant_array['results'][$i]['name'] === "O'Stromboli Italian Eatery"){
+          echo '';
+        }else if($restaurant_array['results'][$i]['name'] === "Winter Park China Star"){
+          echo '';
+        }else if($restaurant_array['results'][$i]['name'] === "Chung On Chinese Restaurant"){
+          echo '';
+        }else if($restaurant_array['results'][$i]['name'] === "China Master"){
+          echo '';
+        }else if($restaurant_array['results'][$i]['name'] === "Lucky China"){
+          echo '';
+        }else if($restaurant_array['results'][$i]['name'] === "Asia Kitchen"){
+          echo '';
+        }else if($restaurant_array['results'][$i]['name'] === "P.F. Chang's"){
+          echo '';
+        }else if($restaurant_array['results'][$i]['name'] === "New Hong Kong"){
+          echo '';
+        }else if($restaurant_array['results'][$i]['name'] === "He Sheng Chinese Restaurant"){
+          echo '';
+        }else if($restaurant_array['results'][$i]['name'] === "310 Park South"){
+          echo '';
+        }else if($restaurant_array['results'][$i]['name'] === "Briarpatch Restaurant"){
+          echo '';
+        }else if($restaurant_array['results'][$i]['name'] === "Luma on Park"){
+          echo '';
+        }else if($restaurant_array['results'][$i]['name'] === "Hamilton's Kitchen"){
+          echo '';
+        }else if($restaurant_array['results'][$i]['name'] === "Dexter's of Winter Park"){
+          echo '';
+        }else if($restaurant_array['results'][$i]['name'] === "Park Plaza Gardens Restaurant"){
+          echo '';
+        }else if($restaurant_array['results'][$i]['name'] === "Johnny's Diner"){
+          echo '';
+        }else if($restaurant_array['results'][$i]['name'] === "Royal Indian Cuisine"){
+          echo '';
+        }else{
+          echo '<section id="view">
               <article id="rest">
               <img src="images/resticon.png"/>
               <aside>  <h3>' . $rating_array[$i]['name'] . '</h3><br>';
@@ -430,12 +542,51 @@ include 'headersearch.php';
                   }
                 echo '</section>
                       </section>';
+                }
             }
       }else {
     for($i = 0; $i < 10; $i++){
-      if($restaurant_array['results'][$i]['name'] === 'Spoleto- My Italian Kitchen (Winter Park)'){
+      if($restaurant_array['results'][$i]['name'] === "Spoleto- My Italian Kitchen (Winter Park)"){
         echo '';
-      }
+      }else if($restaurant_array['results'][$i]['name'] === "Rome's Flavours"){
+        echo '';
+      }else if($restaurant_array['results'][$i]['name'] === "Olive Garden"){
+        echo '';
+      }else if($restaurant_array['results'][$i]['name'] === "O'Stromboli Italian Eatery"){
+        echo '';
+      }else if($restaurant_array['results'][$i]['name'] === "Winter Park China Star"){
+        echo '';
+      }else if($restaurant_array['results'][$i]['name'] === "Chung On Chinese Restaurant"){
+        echo '';
+      }else if($restaurant_array['results'][$i]['name'] === "China Master"){
+        echo '';
+      }else if($restaurant_array['results'][$i]['name'] === "Lucky China"){
+        echo '';
+      }else if($restaurant_array['results'][$i]['name'] === "Asia Kitchen"){
+        echo '';
+      }else if($restaurant_array['results'][$i]['name'] === "P.F. Chang's"){
+        echo '';
+      }else if($restaurant_array['results'][$i]['name'] === "New Hong Kong"){
+        echo '';
+      }else if($restaurant_array['results'][$i]['name'] === "He Sheng Chinese Restaurant"){
+        echo '';
+      }else if($restaurant_array['results'][$i]['name'] === "310 Park South"){
+        echo '';
+      }else if($restaurant_array['results'][$i]['name'] === "Briarpatch Restaurant"){
+        echo '';
+      }else if($restaurant_array['results'][$i]['name'] === "Luma on Park"){
+        echo '';
+      }else if($restaurant_array['results'][$i]['name'] === "Hamilton's Kitchen"){
+        echo '';
+      }else if($restaurant_array['results'][$i]['name'] === "Dexter's of Winter Park"){
+        echo '';
+      }else if($restaurant_array['results'][$i]['name'] === "Park Plaza Gardens Restaurant"){
+        echo '';
+      }else if($restaurant_array['results'][$i]['name'] === "Johnny's Diner"){
+        echo '';
+      }else if($restaurant_array['results'][$i]['name'] === "Royal Indian Cuisine"){
+        echo '';
+      }else{
       echo '<section id="view">
           <article id="rest">
               <img src="images/resticon.png"/>
@@ -473,9 +624,6 @@ include 'headersearch.php';
               <hr class="length">';
         }
         if($restaurant_array['results'][$i]['name'] === "Giovanni's Italian Restaurant & Pizzeria"){
-          // echo '
-          //     <section> <a href="menuPage.php"><i class="fa fa-cutlery" aria-hidden="true"></i>  View Menu</a>';
-
           echo '  <form action="giovanni.php" method="post">
                     <input type="hidden" name="foodType" value="Giovanni" />
                     <i class="fa fa-cutlery" aria-hidden="true"></i>
@@ -487,7 +635,7 @@ include 'headersearch.php';
                       <i class="fa fa-cutlery" aria-hidden="true"></i>
                       <input id="food" type="submit" value="View Menu" class="button" />
                   </form>';
-        }else if($restaurant_array['results'][$i]['name'] === "Rocco's Italian Grille"){
+        }else if($restaurant_array['results'][$i]['name'] === "Rocco's Italian Grille & Bar"){
           echo '   <form action="roccos.php" method="post">
                     <input type="hidden" name="foodType" value="Roccos" />
                     <i class="fa fa-cutlery" aria-hidden="true"></i>
@@ -499,7 +647,7 @@ include 'headersearch.php';
                       <i class="fa fa-cutlery" aria-hidden="true"></i>
                       <input id="food" type="submit" value="View Menu" class="button" />
                   </form>';
-        }else if($restaurant_array['results'][$i]['name'] === "Brio Tuscan Grille"){
+        }else if($restaurant_array['results'][$i]['name'] === "BRIO Tuscan Grille"){
           echo '   <form action="brio.php" method="post">
                     <input type="hidden" name="foodType" value="Brio" />
                     <i class="fa fa-cutlery" aria-hidden="true"></i>
@@ -587,13 +735,10 @@ include 'headersearch.php';
       echo '</section>
             </section>';
           }
+      }
     }
 
 
   include 'footer.php';
-  // var_dump($restaurant_array);
-  // var_dump($rating);
-  // var_dump($search_query);
-  // var_dump($search_query_location);
-  // var_dump($search_query_location);
+
  ?>

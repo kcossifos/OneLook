@@ -147,7 +147,7 @@ class OneLook
             }
             $this->free($res);
         }
-        return $ret; 
+        return $ret;
     }
 
     public function getInd()

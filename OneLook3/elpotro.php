@@ -60,7 +60,7 @@ if(isset($_SESSION["elpotro_items"]) && count($_SESSION["elpotro_items"])>0)
 	echo '<tbody>';
 
 	$total =0;
-	
+
 	foreach ($_SESSION["elpotro_items"] as $menu_items)
 	{
 		$menu_name = $menu_items["item_name"];
