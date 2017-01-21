@@ -93,18 +93,17 @@ if(isset($_SESSION["china_items"]) && count($_SESSION["china_items"])>0)
 ?>
 
 <?php
-$data = $mysqli->query("SELECT item_id, item_name, item_price, menu_id, category_id, descrip, section_id, code FROM OneLook_items_continued_2 WHERE menu_id = '18'");
+$data = $db->query("SELECT item_id, item_name, item_price, menu_id, category_id, descrip, section_id, code FROM OneLook_items_continued_2 WHERE menu_id = '18'");
 if($data){
 $food_item = '<ul class="items">';
-while($obj = $data->fetch_object())
-{
+foreach($data as $obj) {
 $food_item .= <<<EOT
 	<li class="item">
 	<form method="post" action="china_update.php">
-	<div class="item-content"><h3>{$obj->item_name}</h3>
-	<div class="item-desc">{$obj->descrip}</div>
+	<div class="item-content"><h3>{$obj['item_name']}</h3>
+	<div class="item-desc">{$obj['descrip']}</div>
 	<div class="item-info">
-	Price {$currency}{$obj->item_price}
+	Price {$currency}{$obj['item_price']}
 
 	<fieldset>
 
@@ -114,7 +113,7 @@ $food_item .= <<<EOT
 	</label>
 
 	</fieldset>
-	<input type="hidden" name="code" value="{$obj->code}" />
+	<input type="hidden" name="code" value="{$obj['code']}" />
 	<input type="hidden" name="type" value="add" />
 	<input type="hidden" name="return_url" value="{$menupage}" />
 	<div align="center"><button type="submit" >Add</button></div>

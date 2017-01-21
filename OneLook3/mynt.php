@@ -61,7 +61,7 @@ if(isset($_SESSION["mynt_items"]) && count($_SESSION["mynt_items"])>0)
 	echo '<tbody>';
 
 	$total =0;
-	
+
 	foreach ($_SESSION["mynt_items"] as $menu_items)
 	{
 		$menu_name = $menu_items["item_name"];
@@ -91,7 +91,7 @@ if(isset($_SESSION["mynt_items"]) && count($_SESSION["mynt_items"])>0)
 ?>
 
 <?php
-$data = $mysqli->query("SELECT item_id, item_name, item_price, menu_id, category_id, descrip, section_id, code FROM OneLook_items_continued WHERE menu_id = '9'");
+$data = $db->query("SELECT item_id, item_name, item_price, menu_id, category_id, descrip, section_id, code FROM OneLook_items_continued WHERE menu_id = '9'");
 if($data){
 $food_item = '<ul class="items">';
 

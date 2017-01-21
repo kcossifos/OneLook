@@ -8,7 +8,7 @@ if($the_user->islg()) {
 }
 
 
-$page->title = "Register to ". $set_class->site_name;
+$page->title = "Register to OneLook";
 
 if($_POST && isset($_SESSION['token']) && ($_SESSION['token'] == $_POST['token']) && $set_class->register) {
 

@@ -2,25 +2,26 @@
 session_start();
 include_once("config.php");
 
-
 if(isset($_POST["type"]) && $_POST["type"]=='add' && $_POST["item_qty"]>0)
 {
 	foreach($_POST as $key => $value){
 		$new_menuitem[$key] = filter_var($value, FILTER_SANITIZE_STRING);
     }
+
+
+		$menu_name;
+		$menu_price;
 	unset($new_menuitem['type']);
 	unset($new_menuitem['return_url']);
 
+		$sql = "SELECT item_name, item_price FROM OneLook_items_continued_2 WHERE code = :code";
+		$statement = $db->prepare($sql);
+		$statement->execute(array(':code'=>$new_menuitem['code']));
 
-    $statement = $mysqli->prepare("SELECT item_name, item_price FROM OneLook_items_continued_2 WHERE code=?");
-    $statement->bind_param('s', $new_menuitem['code']);
-    $statement->execute();
-    $statement->bind_result($menu_name, $menu_price);
+	 while($row = $statement->fetch(PDO::FETCH_ASSOC)){
 
-	while($statement->fetch()){
-
-        $new_menuitem["item_name"] = $menu_name;
-        $new_menuitem["item_price"] = $menu_price;
+        $new_menuitem["item_name"] = $row['item_name'];
+        $new_menuitem["item_price"] = $row['item_price'];
 
         if(isset($_SESSION["burgerfi_items"])){
             if(isset($_SESSION["burgerfi_items"][$new_menuitem['code']]))
@@ -29,12 +30,14 @@ if(isset($_POST["type"]) && $_POST["type"]=='add' && $_POST["item_qty"]>0)
             }
         }
         $_SESSION["burgerfi_items"][$new_menuitem['code']] = $new_menuitem;
+    }
 }
 
 
 
 if(isset($_POST["item_qty"]) || isset($_POST["remove_code"]))
 {
+
 	if(isset($_POST["item_qty"]) && is_array($_POST["item_qty"])){
 		foreach($_POST["item_qty"] as $key => $value){
 			if(is_numeric($value)){
@@ -42,6 +45,7 @@ if(isset($_POST["item_qty"]) || isset($_POST["remove_code"]))
 			}
 		}
 	}
+
 	if(isset($_POST["remove_code"]) && is_array($_POST["remove_code"])){
 		foreach($_POST["remove_code"] as $key){
 			unset($_SESSION["burgerfi_items"][$key]);
@@ -49,7 +53,8 @@ if(isset($_POST["item_qty"]) || isset($_POST["remove_code"]))
 	}
 }
 
-$return_url = (isset($_POST["return_url"]))?urldecode($_POST["return_url"]):''; 
+
+$return_url = (isset($_POST["return_url"]))?urldecode($_POST["return_url"]):''; //return url
 header('Location:'.$return_url);
 
 ?>

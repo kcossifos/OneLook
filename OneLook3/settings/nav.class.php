@@ -8,14 +8,14 @@ class nav {
       global $set_class, $the_user;
       $var = array();
 
-      if($the_user->group->type == 3)
+      if(isset($the_user->group->type) == 3)
       $var[] = array("item",
                       array("href" => $set_class->url."/users_list.php",
                             "name" => "User List",
                             "class" => $this->isActive("userslist")),
                       "id" => "userslist");
 
-      if($the_user->group->type == 3)
+      if(isset($the_user->group->type) == 3)
       $var[] = array("item",
                       array("href" => $set_class->url."/admin",
                             "name" => "Admin Panel",

@@ -8,17 +8,20 @@ if(isset($_POST["type"]) && $_POST["type"]=='add' && $_POST["item_qty"]>0)
 	foreach($_POST as $key => $value){
 		$new_menuitem[$key] = filter_var($value, FILTER_SANITIZE_STRING);
     }
+		$menu_name;
+		$menu_price;
 	unset($new_menuitem['type']);
 	unset($new_menuitem['return_url']);
-    $statement = $mysqli->prepare("SELECT item_name, item_price FROM OneLook_items_continued_2 WHERE code=?");
-    $statement->bind_param('s', $new_menuitem['code']);
-    $statement->execute();
-    $statement->bind_result($menu_name, $menu_price);
 
-	while($statement->fetch()){
+		$sql = "SELECT item_name, item_price FROM OneLook_items_continued_2 WHERE code = :code";
+		$statement = $db->prepare($sql);
+		$statement->execute(array(':code'=>$new_menuitem['code']));
 
-        $new_menuitem["item_name"] = $menu_name;
-        $new_menuitem["item_price"] = $menu_price;
+	 while($row = $statement->fetch(PDO::FETCH_ASSOC)){
+
+				$new_menuitem["item_name"] = $row['item_name'];
+				$new_menuitem["item_price"] = $row['item_price'];
+  
 
         if(isset($_SESSION["ravenous_items"])){
             if(isset($_SESSION["ravenous_items"][$new_menuitem['code']]))

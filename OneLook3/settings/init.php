@@ -6,6 +6,9 @@ $set_class = new stdClass();
 $page = new stdClass();
 $page->navbar = array();
 
+$set_class->url = "http://localhost:8888/OneLooks/OneLook3/";
+$set_class->register = "http://localhost:8888/OneLooks/OneLook3/";
+ $set_class->site_name = "http://localhost:8888/OneLooks/OneLook3/";
 define("OneLook_ROOT", dirname(dirname(__FILE__)));
 
 include "db.php";

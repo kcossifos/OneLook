@@ -33,13 +33,14 @@ include 'headersearch.php';
           <select id="locationthree" name="locationParam">
             <option value="WinterPark">Winter Park</option>
           </select>
-          <input placeholder="&#xf002;     Search for a restuarant menu or cuisine..." id="menuthree" name="searchFood" list="foodTypes">
+          <input placeholder="&#xf002;  Search for a restuarant menu or cuisine..." id="menuthree" name="searchFood" list="foodTypes">
           <datalist id="foodTypes">
             <option value="Mexican">
             <option value="Italian">
             <option value="Chinese">
             <option value="American">
             <option value="Indian">
+          </datalist>
         </form>
   </section>
   <aside id="filter">
@@ -303,7 +304,7 @@ include 'headersearch.php';
         echo '<section id="view">
               <article id="rest">
               <img src="images/resticon.png"/>
-              <aside>  <h3>' . $rating_array[$i]['name'] . '</h3><br>';
+              <aside><h3>' . $rating_array[$i]['name'] . '</h3><br>';
         if($rating_array[$i]['formatted_address']){
           echo '<h5>Address:</h5><p>' . $rating_array[$i]['formatted_address'] . '</p>';
         }else {
@@ -696,19 +697,19 @@ include 'headersearch.php';
                     <input id="food" type="submit" value="View Menu" class="button" />
                   </form>';
         }else if($restaurant_array['results'][$i]['name'] == "El Potro Mexican Restaurant"){
-          echo '  <form action="elpotro.php" method="post">
+          echo '<form action="elpotro.php" method="post">
                     <input type="hidden" name="foodType" value="ElPotro" />
                       <i class="fa fa-cutlery" aria-hidden="true"></i>
                       <input id="food" type="submit" value="View Menu" class="button" />
                   </form>';
         }else if($restaurant_array['results'][$i]['name'] == "Park Station"){
-          echo '  <form action="park.php" method="post">
+          echo '<form action="park.php" method="post">
                     <input type="hidden" name="foodType" value="ParkStation" />
                       <i class="fa fa-cutlery" aria-hidden="true"></i>
                       <input id="food" type="submit" value="View Menu" class="button" />
                   </form>';
         }else if($restaurant_array['results'][$i]['name'] == "BurgerFi"){
-          echo '  <form action="burgerfi.php" method="post">
+          echo '<form action="burgerfi.php" method="post">
                     <input type="hidden" name="foodType" value="BurgerFi" />
                     <i class="fa fa-cutlery" aria-hidden="true"></i>
                     <input id="food" type="submit" value="View Menu" class="button" />
@@ -720,13 +721,13 @@ include 'headersearch.php';
                        <input id="food" type="submit" value="View Menu" class="button" />
                   </form>';
         }else if($restaurant_array['results'][$i]['name'] == "Jumbo Chinese Restaurant"){
-          echo '  <form action="jumbo.php" method="post">
+          echo '<form action="jumbo.php" method="post">
                     <input type="hidden" name="foodType" value="JumboChinese" />
                       <i class="fa fa-cutlery" aria-hidden="true"></i>
                       <input id="food" type="submit" value="View Menu" class="button" />
                   </form>';
         }else if($restaurant_array['results'][$i]['name'] == "China Garden Restaurant"){
-          echo '  <form action="china.php" method="post">
+          echo '<form action="china.php" method="post">
                     <input type="hidden" name="foodType" value="ChinaGarden" />
                       <i class="fa fa-cutlery" aria-hidden="true"></i>
                       <input id="food" type="submit" value="View Menu" class="button" />
@@ -740,12 +741,4 @@ include 'headersearch.php';
 
 
   include 'footer.php';
-
-<<<<<<< HEAD
-=======
-  // for($i = 0; $i < 10; $i++){
-  //   var_dump($restaurant_array['results'][$i]['name']);
-  // }
-
->>>>>>> origin/master
  ?>
