@@ -11,6 +11,7 @@ if(!$the_user->islg())
 
     <head>
         <meta charset="utf-8">
+        <meta name="google-site-verification" content="b4AgxrUCExdWkb6iw2inMq75k79OXgz_Ye2bOPFpWH8" />
         <title><?php echo $page->title; ?></title>
         <script src="https://use.fontawesome.com/20929198f1.js"></script>
         <link rel="stylesheet" href="<?php echo $set_class->url; ?>/css/bootstrap.css">

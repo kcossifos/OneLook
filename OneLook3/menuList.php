@@ -10,7 +10,7 @@ include 'headersearch.php';
   error_reporting(0);
 
   function restaurant_list($search, $type) {
-    $curl = curl_init('https://maps.googleapis.com/maps/api/place/textsearch/json?type=restaurant&query=' . $search . '+in+' . $type . '&key=AIzaSyARJSoveW_upL1XTKnEi801Qd7TnIGXGRI');
+    $curl = curl_init('https://maps.googleapis.com/maps/api/place/textsearch/json?type=restaurant&query=' . $search . '+in+' . $type . '&key=AIzaSyBZ-OS2E271zVrm1ygaE9EXY1PZuigVIXk');
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
     $result = curl_exec($curl);
     curl_close($curl);
